@@ -21,6 +21,7 @@ function closeOnEscape(e) {
   }
 }
 
+
 function closeOnFocusLost(e) {
   const nav = e.currentTarget;
   if (!nav.contains(e.relatedTarget)) {
@@ -60,7 +61,9 @@ function toggleAllNavSections(sections, expanded = false) {
   sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
     section.setAttribute('aria-expanded', expanded);
   });
+
 }
+
 
 /**
  * Toggles the entire nav
@@ -164,3 +167,4 @@ export default async function decorate(block) {
   navWrapper.append(nav);
   block.append(navWrapper);
 }
+

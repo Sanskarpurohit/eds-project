@@ -144,10 +144,10 @@ header .nav-brand {
   line-height: 1;
 }
 
-header nav .nav-brand img {
+/* header nav .nav-brand img {
   width: 128px;
   height: auto;
-}
+} */
 
 /* sections */
 header nav .nav-sections {
@@ -265,4 +265,70 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+}
+
+
+
+#nav {
+  background-color: #f1f1f1;
+  overflow: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: flex-start; /* Align items to the left */
+  align-items: center;
+  padding: 6px 12px; /* Reduced padding for smaller height */
+  gap: 20px; /* Optional: space between brand and nav items */
+  height: 28px;
+}
+
+#nav > div:first-child {
+  flex: 0; /* Prevent it from taking extra space */
+}
+#nav>div:last-child{
+  margin-left: auto;
+}
+
+#nav > div.section.nav-brand {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Optional: spacing between brand and nav */
+}
+
+#nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+#nav ul li {
+  display: inline-block;
+  padding: 6px 12px; /* Reduced padding for smaller height */
+  cursor: pointer;
+  color: #555;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+#nav ul li:hover {
+  background-color: #ddd;
+  color: #000;
+  border-radius: 4px;
+}
+
+#nav ul li i {
+  margin-right: 6px;
+  font-size: 14px;
+  vertical-align: middle;
+  color: #555;
+}
+
+
+.nav-sections>div>p>span {
+  color: cadetblue;
+  /* background-color: aquamarine; */
+  margin-left: auto;
+  display: flex;
 }
