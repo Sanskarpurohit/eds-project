@@ -1,0 +1,150 @@
+.minicard {
+
+    background-color: white;
+  
+    padding: 20px;
+  
+    margin-bottom: 20px;
+  
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  
+    font-family: 'Segoe UI', sans-serif;
+  
+  }
+  .minicard-header {
+    text-align: center;
+}
+  
+  /* Title and date */
+  
+  .title-wrapper h3 {
+  
+    font-size: 24px;
+  
+    margin: 0;
+  
+  }
+  
+  .date-wrapper h5 {
+  
+    font-size: 14px;
+  
+    color: gray;
+  
+    margin: 5px 0 15px 0;
+  
+  }
+  
+  .date-wrapper .post-date {
+  
+    background-color: #000;
+  
+    color: #fff;
+  
+    padding: 3px 8px;
+  
+  }
+  
+  /* Image */
+  
+  .image-wrapper img {
+  
+    width: 100%;
+  
+    height: auto;
+  
+    margin-bottom: 15px;
+  
+  }
+  
+  /* Description */
+  
+  .desc-wrapper p,
+  
+  .summary-wrapper p {
+  
+    font-size: 16px;
+  
+    line-height: 1.6;
+  
+  }
+  
+  /* Like & Reply buttons */
+  
+  .interaction-bar {
+  
+    display: flex;
+  
+    justify-content: space-between;
+  
+    margin-top: 15px;
+  
+  }
+  
+  .interaction-bar h6 {
+  
+    margin: 0;
+  
+  }
+  
+  .interaction-bar a {
+  
+    text-decoration: none;
+  
+    color: #000;
+  
+    font-size: 14px;
+  
+    background-color: #f1f1f1;
+  
+    padding: 5px 10px;
+  
+    transition: background 0.3s;
+  
+  }
+  
+  .interaction-bar a:hover {
+  
+    background-color: #ccc;
+  
+  }
+  
+  /* Replies */
+  
+  .reply {
+  
+    display: flex;
+  
+    align-items: flex-start;
+  
+    gap: 10px;
+  
+    padding: 10px 0;
+  
+    border-top: 3px solid #eee;
+    margin-top: 10px;
+  
+  }
+  
+  .reply-img img {
+  
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+  
+  }
+  
+  .reply-name p {
+  
+    font-weight: bold;
+  
+    margin: 0;
+  
+  }
+  
+  .reply-msg p {
+  
+    margin: 0;
+  
+  }
+   
