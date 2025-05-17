@@ -10,6 +10,7 @@
   
   }
   
+  
   .tags-title-block {
   
     background-color: #000;
@@ -137,3 +138,16 @@
     }
   
   }  
+  @media (max-width: 767px) {
+    .tags {
+      margin-top: 16px; /* or 0, depending on your layout */
+    }
+  
+    .minicard-container,
+    .tags-container {
+      display: block;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  
