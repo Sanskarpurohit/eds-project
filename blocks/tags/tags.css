@@ -1,0 +1,139 @@
+.tags {
+
+        width: 320px;
+    /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+    background-color: #f1f1f1;
+    padding: 5px;
+    margin-top: 366px;
+    position: relative;
+    z-index: 1;
+  
+  }
+  
+  .tags-title-block {
+  
+    background-color: #000;
+  
+    color: #fff;
+  
+    padding: 12px 16px;
+  
+    margin: 0 0 16px 0; /* only bottom margin to separate from next content */
+  
+  }
+  
+  #tags-1 {
+  
+    font-size: 1.25rem;
+  
+    font-weight: bold;
+  
+    margin: 0;
+  
+  }
+  
+  .tags-links-block h5 {
+  
+    display: flex;
+  
+    flex-wrap: wrap;
+  
+    gap: 8px;
+  
+    margin: 0;
+  
+  }
+  
+  .tag {
+  
+    background-color: #fff;
+  
+    color: #000;
+  
+    padding: 6px 12px;
+  
+    font-size: 0.85rem;
+  
+    text-decoration: none;
+  
+    border-radius: 2px;
+  
+    border: 1px solid #ccc;
+  
+    cursor: pointer;
+  
+  }
+  
+  .tag:hover {
+  
+    background-color: #ccc;
+  
+    color: #000;
+  
+  }
+  .minicard-container,
+
+  .tags-container {
+  
+    display: inline-block;
+  
+    vertical-align: top;
+  
+  }
+  
+  .minicard-container {
+  
+    width: 65%; /* or fixed width like 600px */
+  
+  }
+  
+  .tags-container {
+  
+    width: 30%;
+  
+    margin-left: 5%;
+  
+  }
+   
+
+
+
+  .minicard-container {
+
+    display: inline-block;
+  
+    vertical-align: top;
+  
+    width: 65%; /* adjust as needed */
+  
+  }
+  
+  .tags-container {
+  
+    display: inline-block;
+  
+    vertical-align: top;
+  
+    width: 30%; /* adjust as needed */
+  
+    margin-left: 5%;
+  
+  }
+  
+  /* For mobile */
+  
+  @media (max-width: 767px) {
+  
+    .minicard-container,
+  
+    .tags-container {
+  
+      display: block;
+  
+      width: 100%;
+  
+      margin-left: 0;
+  
+    }
+  
+  }  

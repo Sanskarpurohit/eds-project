@@ -1,12 +1,12 @@
 .ad {
     position: absolute;
-    display: flex;
+    /* display: flex; */
     max-width: 300px;
     margin-top: 24px;
     border: 1px solid #ccc;
     padding: 12px;
     background-color: black;
-    float: right;
+    /* float: right; */
    }
    .ad-title-block {
     font-size: 1.25rem;
