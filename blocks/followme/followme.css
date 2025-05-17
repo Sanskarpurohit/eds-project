@@ -1,0 +1,180 @@
+.followme {
+
+        /* max-width: 600px; */
+        width: 330px;
+        /* margin-right: 120px; */
+        /* margin: 0 auto; */
+        /* padding: 0 16px; */
+        /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+        margin-top: 74px;
+  }
+  
+  .follow-me-block {
+  
+    background-color: #000;
+  
+    color: #fff;
+  
+    padding: 8px 12px;
+  
+    margin-bottom: 0;
+  
+    font-size: 1.1rem;
+  
+    font-weight: bold;
+  
+    border-radius: 0;
+  
+  }
+  
+  .followme-content {
+  
+    background-color: #fff;
+  
+    padding: 8px 12px;
+  
+    border: 1px solid #ddd;
+  
+    border-top: none;
+  
+    border-radius: 0 0 4px 4px;
+  
+  }
+  
+  .social-icons {
+  
+    display: flex;
+  
+    flex-wrap: wrap;
+  
+    gap: 8px;
+  
+    align-items: center;
+  
+  }
+  
+  .social-icons a {
+  
+    color: #000;
+  
+    background-color: #f1f1f1;
+  
+    padding: 6px;
+  
+    border-radius: 50%;
+  
+    text-decoration: none;
+  
+    font-size: 0.95rem;
+  
+    display: inline-flex;
+  
+    align-items: center;
+  
+    justify-content: center;
+  
+    width: 32px;
+  
+    height: 32px;
+  
+    transition: background-color 0.3s;
+  
+  }
+  
+  .social-icons a:hover {
+  
+    background-color:cadetblue;
+    color: blue;
+  
+  }
+  
+  /* Mobile View */
+  
+  @media (max-width: 600px) {
+  
+    .social-icons {
+  
+      justify-content: center;
+  
+    }
+  
+  }
+  .minicard-container,
+
+  .followme-container {
+  
+    display: inline-block;
+  
+    vertical-align: top;
+  
+  }
+  
+  .minicard-container {
+  
+    width: 65%; /* or fixed width like 600px */
+  
+  }
+  
+  .followme-container {
+  
+    width: 30%;
+  
+    margin-left: 5%;
+  
+  }
+   
+
+
+
+  .minicard-container {
+
+    display: inline-block;
+  
+    vertical-align: top;
+  
+    width: 65%; /* adjust as needed */
+  
+  }
+  
+  .followme-container {
+  
+    display: inline-block;
+  
+    vertical-align: top;
+  
+    width: 30%; /* adjust as needed */
+  
+    margin-left: 5%;
+  
+  }
+  
+  /* For mobile */
+  
+  @media (max-width: 767px) {
+  
+    .minicard-container,
+  
+    .followme-container {
+  
+      display: block;
+  
+      width: 100%;
+  
+      margin-left: 0;
+  
+    }
+  
+  }  
+  @media (max-width: 767px) {
+    .followme {
+      margin-top: 16px; /* or 0, depending on your layout */
+    }
+  
+    .minicard-container,
+    .followme-container {
+      display: block;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  
