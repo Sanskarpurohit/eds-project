@@ -83,3 +83,46 @@
   
   }
    
+
+
+
+  .minicard-container {
+
+    display: inline-block;
+  
+    vertical-align: top;
+  
+    width: 65%; /* adjust as needed */
+  
+  }
+  
+  .myname-container {
+  
+    display: inline-block;
+  
+    vertical-align: top;
+  
+    width: 30%; /* adjust as needed */
+  
+    margin-left: 5%;
+  
+  }
+  
+  /* For mobile */
+  
+  @media (max-width: 767px) {
+  
+    .minicard-container,
+  
+    .myname-container {
+  
+      display: block;
+  
+      width: 100%;
+  
+      margin-left: 0;
+  
+    }
+  
+  }
+   
