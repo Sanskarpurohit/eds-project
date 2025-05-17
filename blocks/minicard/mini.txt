@@ -4,7 +4,7 @@ minicards.forEach(minicard => {
 
   const allChildren = minicard.children;
 
-  // Assign classes
+  // Assign classes to first 3 blocks
 
   allChildren[0].classList.add('minicard-header');
 
@@ -26,7 +26,7 @@ minicards.forEach(minicard => {
 
   allChildren[2].children[1].classList.add('reply-box');
 
-  // Wrap date in span
+  // Wrap the date in a <span>
 
   const h5 = allChildren[0].children[1];
 
@@ -38,7 +38,7 @@ minicards.forEach(minicard => {
 
   );
 
-  // Replies blocks from 4th div onward
+  // Handle reply blocks (from 4th div onward)
 
   for (let i = 3; i < allChildren.length; i++) {
 
@@ -54,25 +54,21 @@ minicards.forEach(minicard => {
 
     if (msgDiv) msgDiv.classList.add('reply-msg');
 
-    replyBlock.style.display = 'none'; // hide by default
+    replyBlock.style.display = 'none'; // hide replies by default
 
   }
 
-  // Replies count
+  // Attach toggle to "Replies" button inside this minicard only
 
-  const repliesCount = allChildren.length - 3;
+  const replyButton = allChildren[2].querySelector('.reply-box a');
 
-  // Update replies button text
+  if (replyButton) {
 
-  const replyBoxLink = allChildren[2].querySelector('.reply-box a');
-
-  if (replyBoxLink) {
-
-    replyBoxLink.textContent = `Replies (${repliesCount})`;
-
-    replyBoxLink.addEventListener('click', e => {
+    replyButton.addEventListener('click', (e) => {
 
       e.preventDefault();
+
+      // Toggle only replies inside this minicard
 
       for (let i = 3; i < allChildren.length; i++) {
 
@@ -81,22 +77,6 @@ minicards.forEach(minicard => {
         replyBlock.style.display = replyBlock.style.display === 'none' ? 'block' : 'none';
 
       }
-
-    });
-
-  }
-
-  // Like button toggle
-
-  const likeBoxLink = allChildren[2].querySelector('.like-box a');
-
-  if (likeBoxLink) {
-
-    likeBoxLink.addEventListener('click', e => {
-
-      e.preventDefault();
-
-      likeBoxLink.textContent = likeBoxLink.textContent.trim() === 'Like' ? 'Liked' : 'Like';
 
     });
 
