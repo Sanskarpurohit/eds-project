@@ -1,0 +1,30 @@
+.ad {
+    position: absolute;
+    display: flex;
+    max-width: 300px;
+    margin-top: 24px;
+    border: 1px solid #ccc;
+    padding: 12px;
+    background-color: black;
+    float: right;
+   }
+   .ad-title-block {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 6px;
+   }
+   .ad-image {
+    width: 100%;
+    overflow: hidden;
+   }
+   .ad-image picture,
+   .ad-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 4px;
+   }
