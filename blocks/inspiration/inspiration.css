@@ -1,0 +1,78 @@
+.inspiration{
+    width: 320px;
+    /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+    background-color: #f1f1f1;
+    padding: 5px;
+    margin-top: 19px;
+    position: absolute;
+    z-index: 1;
+}
+
+.inspiration-title-block {
+
+    background-color: #000;
+  
+    color: #fff;
+  
+    padding: 12px 16px;
+  
+    margin-bottom: 16px;
+  
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  
+    font-size: 1.25rem;
+  
+    font-weight: bold;
+  
+  }
+  
+  .picture-pair {
+  
+    display: grid;
+  
+    grid-template-columns: repeat(2, 1fr);
+  
+    gap: 8px;
+  
+    margin-bottom: 24px;
+  
+  }
+  
+  .picture-wrap img,
+  
+  .picture-wrap picture {
+  
+    width: 100%;
+  
+    height: auto;
+  
+    display: block;
+  
+    border-radius: 4px;
+  
+    transition: transform 0.3s ease;
+  
+  }
+  
+  .picture-wrap:hover img,
+  
+  .picture-wrap:hover picture {
+  
+    transform: scale(1.05);
+  
+    cursor: pointer;
+  
+  }
+  
+  /* Mobile view: stack images vertically */
+  
+  @media (max-width: 600px) {
+  
+    .picture-pair {
+  
+      grid-template-columns: 1fr;
+  
+    }
+  
+  }
+   
