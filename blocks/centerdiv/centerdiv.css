@@ -1,0 +1,69 @@
+/* Container with max width and centered */
+
+.centerdiv {
+
+    max-width: 1400px;
+  
+    margin: 0 auto;
+  
+    padding: 0 16px;
+  
+  }
+  
+  /* Header container with centered text and padding */
+  
+  .content-wrapper {
+  
+    text-align: center;
+  
+    padding: 32px 0;
+  
+  }
+  
+  /* H1 styling */
+  
+  .heading-box h1 {
+  
+    font-weight: bold;
+  
+    font-size: 36px;
+  
+    margin-bottom: 16px;
+  
+  }
+  
+  /* H6 and span (tag style) */
+  
+  .subheading-box h6 {
+  
+    font-size: 18px;
+  
+    margin: 0;
+  
+    color: #555;
+  
+    font-weight: normal;
+  
+  }
+  
+  .blog-owner {
+  
+    display: inline-block;
+  
+    background-color: #000;
+  
+    color: #fff;
+  
+    padding: 3px 8px;
+  
+    border-radius: 3px;
+  
+    font-size: 14px;
+  
+    font-weight: bold;
+  
+    margin-left: 5px;
+    
+  
+  }
+   
