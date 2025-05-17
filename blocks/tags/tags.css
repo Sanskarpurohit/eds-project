@@ -4,7 +4,7 @@
     /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
     background-color: #f1f1f1;
     padding: 5px;
-    margin-top: 341px;
+    margin-top: 363px;
     position: relative;
     z-index: 1;
   
@@ -71,4 +71,69 @@
     color: #000;
   
   }
+  .minicard-container,
+
+  .tags-container {
   
+    display: inline-block;
+  
+    vertical-align: top;
+  
+  }
+  
+  .minicard-container {
+  
+    width: 65%; /* or fixed width like 600px */
+  
+  }
+  
+  .tags-container {
+  
+    width: 30%;
+  
+    margin-left: 5%;
+  
+  }
+   
+
+
+
+  .minicard-container {
+
+    display: inline-block;
+  
+    vertical-align: top;
+  
+    width: 65%; /* adjust as needed */
+  
+  }
+  
+  .tags-container {
+  
+    display: inline-block;
+  
+    vertical-align: top;
+  
+    width: 30%; /* adjust as needed */
+  
+    margin-left: 5%;
+  
+  }
+  
+  /* For mobile */
+  
+  @media (max-width: 767px) {
+  
+    .minicard-container,
+  
+    .tags-container {
+  
+      display: block;
+  
+      width: 100%;
+  
+      margin-left: 0;
+  
+    }
+  
+  }  
