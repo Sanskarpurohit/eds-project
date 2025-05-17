@@ -1,6 +1,7 @@
 /* Container with max width and centered */
 
 .centerdiv {
+    font-family: "Oswald";
 
     max-width: 1400px;
   

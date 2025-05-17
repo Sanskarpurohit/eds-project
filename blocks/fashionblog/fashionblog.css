@@ -1,0 +1,87 @@
+*{
+    font-family: "Oswald";
+}
+.fashionblog {
+
+    position: relative;
+  
+    max-width: 1400px;
+  
+    margin: 0 auto;
+  
+  }
+  
+  .image-container picture img {
+  
+    width: 100%;
+  
+    height: auto;
+  
+    display: block;
+  
+  }
+  
+  .overlay-text {
+  
+    position: absolute;
+  
+    top: 50%;
+  
+    left: 5%;
+  
+    transform: translateY(-50%);
+  
+    color: white;
+  
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  
+  }
+  
+  #janes {
+  
+    font-size: 48px;
+  
+    font-weight: 700;
+  
+    margin: 0;
+  
+  }
+  
+  #fashion-blog {
+  
+    font-size: 28px;
+  
+    margin: 10px 0 20px;
+  
+    font-weight: 400;
+  
+  }
+  
+  #subscribe a {
+  
+    display: inline-block;
+  
+    background-color: #888;
+  
+    color: white;
+  
+    padding: 10px 20px;
+  
+    text-decoration: none;
+  
+    font-size: 14px;
+  
+    font-weight: bold;
+  
+    border-radius: 4px;
+  
+    transition: background-color 0.3s ease;
+  
+  }
+  
+  #subscribe a:hover {
+  
+    background-color: #666;
+  
+  }
+   
