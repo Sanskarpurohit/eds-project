@@ -332,3 +332,8 @@ header nav .nav-tools {
   margin-left: auto;
   display: flex;
 }
+.nav-sections>div>p>span:hover {
+  text-decoration: underline;
+  
+}
+
