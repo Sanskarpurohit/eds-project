@@ -18,3 +18,25 @@ footer .footer p {
     padding: 40px 32px 24px;
   }
 }
+
+.tothetop div .button-container p a {
+  display: flex;
+  align-items: center; /* vertically center icon and text */
+  border-radius: 0px;
+  width: fit-content;
+  background-color: black;
+  color: white;
+  gap: 3px;
+  text-decoration: none; /* optional: remove underline */
+  padding: 5px 10px; /* optional: add spacing */
+}
+
+.tothetop div .button-container p a .icon-uparrow img {
+  width: 19px;
+  height: auto;
+}
+
+.tothetop div .button-container p a .text {
+  font-size: 14px; /* adjust as needed */
+}
+
