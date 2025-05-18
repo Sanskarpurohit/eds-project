@@ -336,4 +336,7 @@ header nav .nav-tools {
   text-decoration: underline;
   
 }
+h6#search {
+  float: right;
+}
 
