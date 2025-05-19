@@ -1,6 +1,7 @@
 footer {
   background-color: var(--light-color);
   font-size: var(--body-font-size-xs);
+  background-color:  #616161;
 }
 
 footer .footer > div {
@@ -38,5 +39,13 @@ footer .footer p {
 
 .tothetop div .button-container p a .text {
   font-size: 14px; 
+}
+.default-content-wrapper p {
+  color: white;
+}
+
+.default-content-wrapper p a {
+  color: white;
+  text-decoration: underline;
 }
 
