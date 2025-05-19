@@ -1,4 +1,4 @@
-/* Container with max width and centered */
+
 
 .centerdiv {
     font-family: "Oswald";
@@ -11,7 +11,7 @@
   
   }
   
-  /* Header container with centered text and padding */
+ 
   
   .content-wrapper {
   
@@ -21,7 +21,7 @@
   
   }
   
-  /* H1 styling */
+
   
   .heading-box h1 {
   
@@ -33,7 +33,7 @@
   
   }
   
-  /* H6 and span (tag style) */
+
   
   .subheading-box h6 {
   

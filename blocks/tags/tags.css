@@ -19,7 +19,7 @@
   
     padding: 12px 16px;
   
-    margin: 0 0 16px 0; /* only bottom margin to separate from next content */
+    margin: 0 0 16px 0; 
   
   }
   
@@ -84,7 +84,7 @@
   
   .minicard-container {
   
-    width: 65%; /* or fixed width like 600px */
+    width: 65%; 
   
   }
   
@@ -105,7 +105,7 @@
   
     vertical-align: top;
   
-    width: 65%; /* adjust as needed */
+    width: 65%; 
   
   }
   
@@ -115,7 +115,7 @@
   
     vertical-align: top;
   
-    width: 30%; /* adjust as needed */
+    width: 30%; 
   
     margin-left: 5%;
   
@@ -140,7 +140,7 @@
   }  
   @media (max-width: 767px) {
     .tags {
-      margin-top: 16px; /* or 0, depending on your layout */
+      margin-top: 16px; 
     }
   
     .minicard-container,

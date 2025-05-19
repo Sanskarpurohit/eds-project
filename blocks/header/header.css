@@ -275,15 +275,15 @@ header nav .nav-tools {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   border-bottom: 1px solid #ccc;
   display: flex;
-  justify-content: flex-start; /* Align items to the left */
+  justify-content: flex-start; 
   align-items: center;
-  padding: 6px 12px; /* Reduced padding for smaller height */
-  gap: 20px; /* Optional: space between brand and nav items */
+  padding: 6px 12px; 
+  gap: 20px; 
   height: 28px;
 }
 
 #nav > div:first-child {
-  flex: 0; /* Prevent it from taking extra space */
+  flex: 0; 
 }
 #nav>div:last-child{
   margin-left: auto;
@@ -292,7 +292,7 @@ header nav .nav-tools {
 #nav > div.section.nav-brand {
   display: flex;
   align-items: center;
-  margin-right: 20px; /* Optional: spacing between brand and nav */
+  margin-right: 20px; 
 }
 
 #nav ul {
@@ -304,7 +304,7 @@ header nav .nav-tools {
 
 #nav ul li {
   display: inline-block;
-  padding: 6px 12px; /* Reduced padding for smaller height */
+  padding: 6px 12px; 
   cursor: pointer;
   color: #555;
   font-weight: 600;
@@ -313,7 +313,7 @@ header nav .nav-tools {
 }
 
 #nav ul li:hover {
-  background-color: #ddd;
+  background-color: cadetblue;
   color: #000;
   border-radius: 4px;
 }

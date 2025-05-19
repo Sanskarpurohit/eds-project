@@ -5,7 +5,7 @@
     margin-top: 19px;
     position: absolute;
     z-index: 1;
-    border: none; /* Removed border to match inspiration */
+    border: none;
   }
   
   .ad-title-block {
@@ -15,7 +15,7 @@
     font-weight: bold;
     padding: 12px 16px;
     margin-bottom: 16px;
-    border-bottom: none; /* Removed border to match inspiration */
+    border-bottom: none;
   }
   
   .ad-image {

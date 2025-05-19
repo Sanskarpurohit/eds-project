@@ -71,7 +71,7 @@
   
   .minicard-container {
   
-    width: 65%; /* or fixed width like 600px */
+    width: 65%; 
   
   }
   
@@ -92,7 +92,7 @@
   
     vertical-align: top;
   
-    width: 65%; /* adjust as needed */
+    width: 65%; 
   
   }
   
@@ -102,7 +102,7 @@
   
     vertical-align: top;
   
-    width: 30%; /* adjust as needed */
+    width: 30%; 
   
     margin-left: 5%;
   

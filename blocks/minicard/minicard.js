@@ -4,8 +4,6 @@ minicards.forEach(minicard => {
 
   const allChildren = minicard.children;
 
-  // Assign classes
-
   allChildren[0].classList.add('minicard-header');
 
   allChildren[0].children[0].classList.add('title-wrapper');
@@ -26,7 +24,6 @@ minicards.forEach(minicard => {
 
   allChildren[2].children[1].classList.add('reply-box');
 
-  // Wrap date in span
 
   const h5 = allChildren[0].children[1];
 
@@ -38,7 +35,6 @@ minicards.forEach(minicard => {
 
   );
 
-  // Replies blocks from 4th div onward
 
   for (let i = 3; i < allChildren.length; i++) {
 
@@ -54,7 +50,7 @@ minicards.forEach(minicard => {
 
     if (msgDiv) msgDiv.classList.add('reply-msg');
 
-    replyBlock.style.display = 'none'; // hide by default
+    replyBlock.style.display = 'none'; // hide 
 
   }
 
@@ -62,7 +58,7 @@ minicards.forEach(minicard => {
 
   const repliesCount = allChildren.length - 3;
 
-  // Update replies button text
+
 
   const replyBoxLink = allChildren[2].querySelector('.reply-box a');
 
@@ -86,7 +82,7 @@ minicards.forEach(minicard => {
 
   }
 
-  // Like button toggle
+
 
   const likeBoxLink = allChildren[2].querySelector('.like-box a');
 

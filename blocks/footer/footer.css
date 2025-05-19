@@ -21,14 +21,14 @@ footer .footer p {
 
 .tothetop div .button-container p a {
   display: flex;
-  align-items: center; /* vertically center icon and text */
+  align-items: center; 
   border-radius: 0px;
   width: fit-content;
   background-color: black;
   color: white;
   gap: 3px;
-  text-decoration: none; /* optional: remove underline */
-  padding: 5px 10px; /* optional: add spacing */
+  text-decoration: none; 
+  padding: 5px 10px; 
 }
 
 .tothetop div .button-container p a .icon-uparrow img {
@@ -37,6 +37,6 @@ footer .footer p {
 }
 
 .tothetop div .button-container p a .text {
-  font-size: 14px; /* adjust as needed */
+  font-size: 14px; 
 }
 
