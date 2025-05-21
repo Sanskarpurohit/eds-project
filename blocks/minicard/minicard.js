@@ -36,6 +36,7 @@ minicards.forEach(minicard => {
   );
 
 
+
   for (let i = 3; i < allChildren.length; i++) {
 
     const replyBlock = allChildren[i];
@@ -50,10 +51,14 @@ minicards.forEach(minicard => {
 
     if (msgDiv) msgDiv.classList.add('reply-msg');
 
+  
     replyBlock.style.display = 'none'; // hide 
+}
 
-  }
+  
 
+ 
+  
   // Replies count
 
   const repliesCount = allChildren.length - 3;
