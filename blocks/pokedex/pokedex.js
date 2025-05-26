@@ -1,3 +1,4 @@
+console.log("PokeMon Card Coming");
 const style = document.createElement('style');
 style.textContent = `
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
@@ -247,7 +248,7 @@ button.addEventListener("click", () => {
 });
 const getSuggestions = (query) => {
     if (!query) return;
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=50")
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=1000")
       .then(res => res.json())
       .then(data => {
         const suggestions = data.results
