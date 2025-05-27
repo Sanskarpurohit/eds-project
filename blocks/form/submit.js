@@ -1,4 +1,4 @@
-import { DEFAULT_THANK_YOU_MESSAGE, getSubmitBaseUrl } from './constant.js';
+import { DEFAULT_THANK_YOU_MESSAGE, getRouting, getSubmitBaseUrl } from './constant.js';
 
 export function submitSuccess(e, form) {
   const { payload } = e;
@@ -20,20 +20,29 @@ export function submitSuccess(e, form) {
     form.reset();
   }
   form.setAttribute('data-submitting', 'false');
-  form.querySelector('button[type="submit"]').disabled = false;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  if (submitBtn) submitBtn.disabled = false;
 }
 
 export function submitFailure(e, form) {
+  console.error('Form submission failed:', e);
   let errorMessage = form.querySelector('.form-message.error-message');
   if (!errorMessage) {
     errorMessage = document.createElement('div');
     errorMessage.className = 'form-message error-message';
   }
-  errorMessage.innerHTML = 'Some error occured while submitting the form'; // TODO: translation
+
+  const userMessage = e?.message?.includes('401')
+    ? 'You are not authorized to submit this form.'
+    : 'An error occurred while submitting the form. Please try again later.';
+
+  errorMessage.innerHTML = userMessage;
   form.prepend(errorMessage);
   errorMessage.scrollIntoView({ behavior: 'smooth' });
+
   form.setAttribute('data-submitting', 'false');
-  form.querySelector('button[type="submit"]').disabled = false;
+  const submitBtn = form.querySelector('button[type="submit"]');
+  if (submitBtn) submitBtn.disabled = false;
 }
 
 function generateUnique() {
@@ -43,13 +52,12 @@ function generateUnique() {
 function getFieldValue(fe, payload) {
   if (fe.type === 'radio') {
     return fe.form.elements[fe.name].value;
-  } if (fe.type === 'checkbox') {
-    if (payload[fe.name]) {
-      if (fe.checked) {
+  }
+  if (fe.type === 'checkbox') {
+    if (fe.checked) {
+      if (payload[fe.name]) {
         return `${payload[fe.name]},${fe.value}`;
       }
-      return payload[fe.name];
-    } if (fe.checked) {
       return fe.value;
     }
   } else if (fe.type !== 'file') {
@@ -75,21 +83,27 @@ function constructPayload(form) {
 
 async function prepareRequest(form) {
   const { payload } = constructPayload(form);
+  const { branch, site, org, tier } = getRouting();
   const headers = {
     'Content-Type': 'application/json',
-    // eslint-disable-next-line comma-dangle
-    'x-adobe-form-hostname': window?.location?.hostname
+    'x-adobe-routing': `tier=${tier},bucket=${branch}--${site}--${org}`,
   };
   const body = { data: payload };
   let url;
   let baseUrl = getSubmitBaseUrl();
-  if (!baseUrl) {
-    // eslint-disable-next-line prefer-template
+
+  if (!baseUrl && org && site) {
     baseUrl = 'https://forms.adobe.com/adobe/forms/af/submit/';
-    url = baseUrl + btoa(`${form.dataset.action}.json`);
+    headers['x-adobe-routing'] = `tier=${tier},bucket=${branch}--${site}--${org}`;
+    url = baseUrl + btoa(form.dataset.action);
   } else {
     url = form.dataset.action;
   }
+
+  console.log('Submitting form to:', url);
+  console.log('Request Headers:', headers);
+  console.log('Request Body:', body);
+
   return { headers, body, url };
 }
 
@@ -101,16 +115,19 @@ async function submitDocBasedForm(form, captcha) {
       token = await captcha.getToken();
       body.data['g-recaptcha-response'] = token;
     }
+
     const response = await fetch(url, {
       method: 'POST',
       headers,
       body: JSON.stringify(body),
     });
+
     if (response.ok) {
-      submitSuccess(response, form);
+      const json = await response.json();
+      submitSuccess({ payload: json }, form);
     } else {
-      const error = await response.text();
-      throw new Error(error);
+      const errorText = await response.text();
+      throw new Error(`HTTP ${response.status}: ${errorText}`);
     }
   } catch (error) {
     submitFailure(error, form);
@@ -120,12 +137,13 @@ async function submitDocBasedForm(form, captcha) {
 export async function handleSubmit(e, form, captcha) {
   e.preventDefault();
   const valid = form.checkValidity();
+
   if (valid) {
     e.submitter?.setAttribute('disabled', '');
     if (form.getAttribute('data-submitting') !== 'true') {
       form.setAttribute('data-submitting', 'true');
 
-      // hide error message in case it was shown before
+      // Hide any previously shown messages
       form.querySelectorAll('.form-message.show').forEach((el) => el.classList.remove('show'));
 
       if (form.dataset.source === 'sheet') {
