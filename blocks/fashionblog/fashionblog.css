@@ -1,87 +1,152 @@
-*{
+* {
     font-family: "Oswald";
 }
 .fashionblog {
-
     position: relative;
-  
+
     max-width: 1400px;
-  
+
     margin: 0 auto;
-  
-  }
-  
-  .image-container picture img {
-  
+}
+
+.image-container picture img {
     width: 100%;
-  
+
     height: auto;
-  
+
     display: block;
-  
-  }
-  
-  .overlay-text {
-  
+}
+
+.overlay-text {
     position: absolute;
-  
+
     top: 50%;
-  
+
     left: 5%;
-  
+
     transform: translateY(-50%);
-  
+
     color: white;
-  
+
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-  
-  }
-  
-  #janes {
-  
+}
+
+#janes {
     font-size: 48px;
-  
+
     font-weight: 700;
-  
+
     margin: 0;
-  
-  }
-  
-  #fashion-blog {
-  
+}
+
+#fashion-blog {
     font-size: 28px;
-  
+
     margin: 10px 0 20px;
-  
+
     font-weight: 400;
-  
-  }
-  
-  #subscribe a {
-  
+}
+
+#subscribe a {
     display: inline-block;
-  
+
     background-color: #888;
-  
+
     color: white;
-  
+
     padding: 10px 20px;
-  
+
     text-decoration: none;
-  
+
     font-size: 14px;
-  
+
     font-weight: bold;
-  
+
     border-radius: 4px;
-  
+
     transition: background-color 0.3s ease;
-  
-  }
-  
-  #subscribe a:hover {
-  
+}
+
+#subscribe a:hover {
     background-color: #666;
-  
-  }
-   
+}
+
+.custom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.custom-modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.custom-modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 6px;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.custom-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.custom-submit-btn {
+    margin-top: 15px;
+    width: 100%;
+    padding: 10px;
+    background: #009688;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.custom-submit-btn:hover {
+    background: #00796b;
+}
+
+.custom-subscribe-btn {
+    background-color: #009688;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+.custom-subscribe-btn:hover {
+    background-color: #00796b;
+}
