@@ -1,3 +1,6 @@
+document.querySelectorAll(".ad-container").forEach(right=>{
+    right.classList.add("right");
+})
 document.querySelectorAll('.ad').forEach(ad => {
     const titleWrapper = ad.children[0];
     const titleInner = titleWrapper?.children[0];
@@ -6,3 +9,4 @@ document.querySelectorAll('.ad').forEach(ad => {
     const imageInner = imgWrapper?.children[0];
     if (imageInner) imageInner.classList.add('ad-image');
    });
+   

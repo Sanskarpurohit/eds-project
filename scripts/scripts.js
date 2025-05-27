@@ -13,6 +13,7 @@ import {
   loadCSS,
 } from './aem.js';
 
+document.querySelector("main").classList.add("mainBoss");
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element

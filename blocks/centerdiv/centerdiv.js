@@ -1,3 +1,6 @@
+document.querySelectorAll(".centerdiv-container").forEach(right=>{
+    right.classList.add("center");
+})
 const contentWrapper = document.querySelector('.centerdiv > div');
 contentWrapper.classList.add('content-wrapper');
 const headingBox = contentWrapper.children[0];

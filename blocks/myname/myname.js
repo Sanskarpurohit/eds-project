@@ -1,3 +1,6 @@
+document.querySelectorAll(".myname-container").forEach(right=>{
+    right.classList.add("right");
+  })
 const myNameCard=document.querySelector('.myname');
 
 const imageWrapper=myNameCard.children[0];

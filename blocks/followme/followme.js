@@ -1,3 +1,6 @@
+document.querySelectorAll(".followme-container").forEach(right=>{
+  right.classList.add("right");
+})
 document.querySelectorAll('.followme').forEach((followBlock) => {
     const children = followBlock.children;
     

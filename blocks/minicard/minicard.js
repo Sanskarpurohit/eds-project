@@ -1,8 +1,13 @@
 const minicards = document.querySelectorAll('.minicard');
+const allMinicard=document.querySelectorAll(".minicard-container");
+allMinicard.forEach(left=>{
+  left.classList.add("left");
+})
 
 minicards.forEach(minicard => {
 
   const allChildren = minicard.children;
+ 
 
   allChildren[0].classList.add('minicard-header');
 
