@@ -14,21 +14,21 @@ fashionBlogDiv.classList.add("fashion-blog-container");
 subscribeDiv.querySelector("h6").id = "subscribe";
 subscribeDiv.classList.add("subscribe-container");
 
-// Create Subscribe Button
-const container = document.querySelector('.subscribe-container');
+// 1. Add Subscribe button inside .subscribe-container
+const container = document.querySelector(".subscribe-container");
 if (container) {
-  const button = document.createElement('button');
-  button.textContent = 'Subscribe';
-  button.className = 'custom-subscribe-btn';
-  button.addEventListener('click', () => {
-    const modal = document.querySelector('.custom-modal');
-    if (modal) modal.classList.add('show');
+  const button = document.createElement("button");
+  button.textContent = "Subscribe";
+  button.className = "custom-subscribe-btn";
+  button.addEventListener("click", () => {
+    const modal = document.querySelector(".custom-modal");
+    if (modal) modal.classList.add("show");
   });
   container.appendChild(button);
 }
 
-// Create Modal if not present
-if (!document.querySelector('.custom-modal')) {
+// 2. Create modal markup if not already present
+if (!document.querySelector(".custom-modal")) {
   const modalHTML = `
     <div class="custom-modal">
       <div class="custom-modal-content">
@@ -40,17 +40,49 @@ if (!document.querySelector('.custom-modal')) {
       </div>
     </div>
   `;
-  document.body.insertAdjacentHTML('beforeend', modalHTML);
+  document.body.insertAdjacentHTML("beforeend", modalHTML);
 
   // Close modal on X click
-  document.querySelector('.close-modal').addEventListener('click', () => {
-    document.querySelector('.custom-modal').classList.remove('show');
+  document.querySelector(".close-modal").addEventListener("click", () => {
+    document.querySelector(".custom-modal").classList.remove("show");
   });
 
   // Close modal on outside click
-  document.querySelector('.custom-modal').addEventListener('click', (e) => {
-    if (e.target.classList.contains('custom-modal')) {
-      e.target.classList.remove('show');
+  document.querySelector(".custom-modal").addEventListener("click", (e) => {
+    if (e.target.classList.contains("custom-modal")) {
+      e.target.classList.remove("show");
     }
   });
 }
+
+// 3. Handle subscribe button inside modal with localStorage
+const submitBtn = document.querySelector(".custom-submit-btn");
+const emailInput = document.querySelector(".custom-input");
+
+submitBtn.addEventListener("click", () => {
+  const email = emailInput.value.trim();
+
+  if (!email) {
+    alert("Please enter your email");
+    return;
+  }
+
+  // Get stored emails or empty array
+  let emails = JSON.parse(localStorage.getItem("subscribedEmails")) || [];
+
+  // Check duplicates
+  if (emails.includes(email)) {
+    alert("This email is already subscribed!");
+    return;
+  }
+
+  // Save new email
+  emails.push(email);
+  localStorage.setItem("subscribedEmails", JSON.stringify(emails));
+
+  // Reset and close modal
+  emailInput.value = "";
+  document.querySelector(".custom-modal").classList.remove("show");
+
+  alert("Thank you for subscribing!");
+});
