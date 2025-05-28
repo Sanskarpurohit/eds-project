@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Left and Right Columns Layout</title>
+<style>
+
+  body {
+
+    margin: 20px;
+
+    font-family: Arial, sans-serif;
+
+  }
+
+  main {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+  }
+
+  /* Full width blocks */
+
+  .centerdiv-container,
+
+  .fashionblog-container {
+
+    width: 100%;
+
+    background: #dfe6e9;
+
+    padding: 15px;
+
+    box-sizing: border-box;
+
+  }
+
+  /* Container holding left and right columns side by side */
+
+  .columns-container {
+
+    display: flex;
+
+    gap: 20px;
+
+  }
+
+  /* Left column */
+
+  .left-column {
+
+    flex: 1; /* takes half or you can adjust */
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+  }
+
+  /* Right column */
+
+  .right-column {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+  }
+
+  /* Inner wrapper styles */
+
+  .wrapper {
+
+    background: #b2bec3;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    border-radius: 4px;
+
+  }
+</style>
+</head>
+<body>
+<main>
+<!-- Full width blocks -->
+<div class="centerdiv-container">
+<div class="wrapper">Center Div - Full Width</div>
+</div>
+<div class="fashionblog-container">
+<div class="wrapper">Fashion Blog - Full Width</div>
+</div>
+<!-- Two columns container -->
+<div class="columns-container">
+<!-- Left Column -->
+<div class="left-column">
+<div class="minicard-container">
+<div class="wrapper">Mini Card 1 (Left)</div>
+</div>
+<div class="minicard-container">
+<div class="wrapper">Mini Card 2 (Left)</div>
+</div>
+<!-- add more left blocks here -->
+</div>
+<!-- Right Column -->
+<div class="right-column">
+<div class="myname-container">
+<div class="wrapper">My Name (Right)</div>
+</div>
+<div class="followme-container">
+<div class="wrapper">Follow Me (Right)</div>
+</div>
+<!-- add more right blocks here -->
+</div>
+</div>
+</main>
+</body>
+</html>
+ 
