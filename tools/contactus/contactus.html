@@ -3,122 +3,222 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Left and Right Columns Layout</title>
+<title>Contact Us Form</title>
 <style>
 
   body {
 
-    margin: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-    font-family: Arial, sans-serif;
-
-  }
-
-  main {
+    background: #f0f4f8;
 
     display: flex;
 
-    flex-direction: column;
+    justify-content: center;
 
-    gap: 20px;
+    align-items: center;
+
+    height: 100vh;
 
   }
 
-  .centerdiv-container,
+  .contact-form {
 
-  .fashionblog-container {
+    background: #fff;
+
+    padding: 2rem 2.5rem;
+
+    border-radius: 10px;
+
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+
+    width: 350px;
+
+  }
+
+  .contact-form h2 {
+
+    margin-bottom: 1.5rem;
+
+    color: #333;
+
+    text-align: center;
+
+  }
+
+  .form-group {
+
+    margin-bottom: 1.25rem;
+
+  }
+
+  label {
+
+    display: block;
+
+    font-weight: 600;
+
+    margin-bottom: 0.4rem;
+
+    color: #555;
+
+  }
+
+  input[type="text"],
+
+  input[type="email"],
+
+  textarea {
 
     width: 100%;
 
-    background: #dfe6e9;
+    padding: 0.6rem 0.8rem;
 
-    padding: 15px;
+    font-size: 1rem;
 
-    box-sizing: border-box;
+    border: 1.8px solid #ccc;
 
-  }
+    border-radius: 6px;
 
+    transition: border-color 0.3s ease;
 
-
-  .columns-container {
-
-    display: flex;
-
-    gap: 20px;
+    resize: vertical;
 
   }
 
-  .left-column {
+  input[type="text"]:focus,
 
-    flex: 1;
+  input[type="email"]:focus,
 
-    display: flex;
+  textarea:focus {
 
-    flex-direction: column;
+    border-color: #007BFF;
 
-    gap: 20px;
-
-  }
-
-
-  .right-column {
-
-    flex: 1;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 20px;
+    outline: none;
 
   }
 
+  textarea {
 
+    min-height: 100px;
 
-  .wrapper {
+  }
 
-    background: #b2bec3;
+  button {
 
-    padding: 10px;
+    width: 100%;
 
-    box-sizing: border-box;
+    padding: 0.75rem;
 
-    border-radius: 4px;
+    background: #007BFF;
+
+    border: none;
+
+    color: white;
+
+    font-size: 1.1rem;
+
+    font-weight: 700;
+
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    transition: background 0.3s ease;
+
+  }
+
+  button:hover {
+
+    background: #0056b3;
+
+  }
+
+  .success-message {
+
+    display: none;
+
+    margin-top: 1rem;
+
+    color: green;
+
+    font-weight: 600;
+
+    text-align: center;
 
   }
 </style>
 </head>
 <body>
-<main>
-<!-- Full-->
-<div class="centerdiv-container">
-<div class="wrapper">Center Div - Full Width</div>
+<form class="contact-form" id="contactForm">
+<h2>Contact Us</h2>
+<div class="form-group">
+<label for="name">Name *</label>
+<input type="text" id="name" name="name" required autocomplete="name" />
 </div>
-<div class="fashionblog-container">
-<div class="wrapper">Fashion Blog - Full Width</div>
+<div class="form-group">
+<label for="email">Email *</label>
+<input type="email" id="email" name="email" required autocomplete="email" />
 </div>
-<!-- Two columns container -->
-<div class="columns-container">
-<!-- Left Column -->
-<div class="left-column">
-<div class="minicard-container">
-<div class="wrapper">Mini Card 1 (Left)</div>
+<div class="form-group">
+<label for="message">Message *</label>
+<textarea id="message" name="message" required></textarea>
 </div>
-<div class="minicard-container">
-<div class="wrapper">Mini Card 2 (Left)</div>
-</div>
-</div>
-<!-- Right Column -->
-<div class="right-column">
-<div class="myname-container">
-<div class="wrapper">My Name (Right)</div>
-</div>
-<div class="followme-container">
-<div class="wrapper">Follow Me (Right)</div>
-</div>
-</div>
-</div>
-</main>
+<button type="submit">Send Message</button>
+<div class="success-message" id="successMsg">Thank you! Your message has been sent.</div>
+</form>
+<script>
+
+  // Initialize dataLayer if it doesn't exist
+
+  window.dataLayer = window.dataLayer || [];
+
+  const form = document.getElementById('contactForm');
+
+  const successMsg = document.getElementById('successMsg');
+
+  form.addEventListener('submit', function(e) {
+
+    e.preventDefault();
+
+    // Collect form data
+
+    const formData = {
+
+      event: 'contactFormSubmission',
+
+      contactName: form.name.value.trim(),
+
+      contactEmail: form.email.value.trim(),
+
+      contactMessage: form.message.value.trim()
+
+    };
+
+    // Push to dataLayer
+
+    window.dataLayer.push(formData);
+
+    console.log('dataLayer push:', formData);
+
+    // Show success message
+
+    successMsg.style.display = 'block';
+
+    // Optional: reset the form
+
+    form.reset();
+
+    // Hide message after 3 seconds
+
+    setTimeout(() => {
+
+      successMsg.style.display = 'none';
+
+    }, 3000);
+
+  });
+</script>
 </body>
 </html>
  
