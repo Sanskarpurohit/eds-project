@@ -11,11 +11,11 @@ janesDiv.querySelector("h1").id = "janes";
 janesDiv.classList.add("janes-container");
 fashionBlogDiv.querySelector("h1").id = "fashion-blog";
 fashionBlogDiv.classList.add("fashion-blog-container");
-subscribeDiv.querySelector("h6").id = "subscribe";
+// subscribeDiv.querySelector("h6").id = "subscribe";
 subscribeDiv.classList.add("subscribe-container");
 
 // 1. Add Subscribe button inside .subscribe-container
-const container = document.querySelector(".subscribe-container");
+const container = document.querySelector(".fashion-blog-container");
 if (container) {
   const button = document.createElement("button");
   button.textContent = "Subscribe";
@@ -27,7 +27,6 @@ if (container) {
   container.appendChild(button);
 }
 
-// 2. Create modal markup if not already present
 if (!document.querySelector(".custom-modal")) {
   const modalHTML = `
     <div class="custom-modal">
@@ -66,21 +65,13 @@ submitBtn.addEventListener("click", () => {
     alert("Please enter your email");
     return;
   }
-
-  // Get stored emails or empty array
   let emails = JSON.parse(localStorage.getItem("subscribedEmails")) || [];
-
-  // Check duplicates
   if (emails.includes(email)) {
     alert("This email is already subscribed!");
     return;
   }
-
-  // Save new email
   emails.push(email);
   localStorage.setItem("subscribedEmails", JSON.stringify(emails));
-
-  // Reset and close modal
   emailInput.value = "";
   document.querySelector(".custom-modal").classList.remove("show");
 
