@@ -59,6 +59,7 @@ footer .footer p {
   max-width: 1200px; /* optional to limit width */
   margin: 40px auto; /* center the layout */
   box-sizing: border-box;
+  column-gap: 30px;
  }
  .left-column,
  .right-column {
@@ -67,11 +68,12 @@ footer .footer p {
  }
  .left-column {
   /* optional for visual clarity */
-  background-color: #f9f9f9;
+  /* background-color: #f9f9f9; */
  }
  .right-column {
   /* optional for visual clarity */
-  background-color: #fffdf9;
+  /* background-color: #fffdf9; */
+  margin-bottom: 20px;
  }
 
  .minicard-container,
@@ -105,4 +107,19 @@ footer .footer p {
   width: 100%;
 
 }
- 
+.two-columns-wrapper {
+  display: flex;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+ }
+ .left-column {
+  flex: 2; /* Takes more space */
+  min-width: 0;
+ }
+ .right-column {
+  flex: 1; /* Takes less space */
+  min-width: 0;
+ }
