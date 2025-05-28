@@ -49,20 +49,60 @@ footer .footer p {
   text-decoration: underline;
 }
 
+
+
 .two-columns-wrapper {
-  display: flex;
-  gap: 20px; /* space between columns */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Half-half layout */
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px; /* optional to limit width */
+  margin: 40px auto; /* center the layout */
+  box-sizing: border-box;
+ }
+ .left-column,
+ .right-column {
+  width: 100%;
+  box-sizing: border-box;
  }
  .left-column {
-  flex: 2; /* wider left column */
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* spacing between minicards */
+  /* optional for visual clarity */
+  background-color: #f9f9f9;
  }
  .right-column {
-  flex: 1; /* narrower right column */
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* spacing between sidebar blocks */
+  /* optional for visual clarity */
+  background-color: #fffdf9;
  }
 
+ .minicard-container,
+
+.myname-container,
+
+.popularpost-container,
+
+.followme-container,
+
+.tags-container {
+
+  width: 100% !important;
+
+  margin: 0 !important;
+
+  box-sizing: border-box;
+
+}
+
+.minicard.block,
+
+.myname.block,
+
+.popularpost.block,
+
+.followme.block,
+
+.tags.block {
+
+  width: 100%;
+
+}
+ 
