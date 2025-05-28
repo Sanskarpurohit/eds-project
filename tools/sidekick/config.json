@@ -35,6 +35,16 @@
         "environments": [ "edit","dev", "preview", "live", "prod" ],
         "url": "https://www.youtube.com/@kingstyle19",
         "passReferrer": true
+      },
+      {
+        "id": "Library",
+        "title": "My Library",
+        "environments": ["edit"],
+        "url": "/tools/sidekick/library.html",
+        "includePaths":["**.docx**"]
+        
+
+        
       }
     ]
 }
