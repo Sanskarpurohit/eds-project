@@ -49,3 +49,20 @@ footer .footer p {
   text-decoration: underline;
 }
 
+.two-columns-wrapper {
+  display: flex;
+  gap: 20px; /* space between columns */
+ }
+ .left-column {
+  flex: 2; /* wider left column */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* spacing between minicards */
+ }
+ .right-column {
+  flex: 1; /* narrower right column */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* spacing between sidebar blocks */
+ }
+
