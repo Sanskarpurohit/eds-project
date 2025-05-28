@@ -123,3 +123,9 @@ footer .footer p {
   flex: 1; /* Takes less space */
   min-width: 0;
  }
+ .right-column > .container {
+  margin-bottom: 20px; /* Adjust gap as needed */
+ }
+ .right-column > .container:last-child {
+  margin-bottom: 0;
+ }
