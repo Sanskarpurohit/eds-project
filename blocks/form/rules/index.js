@@ -17,7 +17,7 @@
  * Adobe permits you to use and modify this file solely in accordance with
  * the terms of the Adobe license agreement accompanying it.
  ************************************************************************ */
-import { submitSuccess, submitFailure } from '../submit.js';
+import { submitSuccess, submitFailure } from '../../form/submit.js';
 import {
   createHelpText, createLabel, updateOrCreateInvalidMsg, getCheckboxGroupValue,
 } from '../util.js';
