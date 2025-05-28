@@ -129,3 +129,29 @@ footer .footer p {
  .right-column > .container:last-child {
   margin-bottom: 0;
  }
+ 
+
+
+/* */
+
+
+@media (max-width: 768px) {
+
+  .two-columns-wrapper {
+
+    display: flex;
+
+    flex-direction: column;
+
+  }
+
+  .two-columns-wrapper .left-column,
+
+  .two-columns-wrapper .right-column {
+
+    width: 100%;
+
+  }
+
+}
+ 
