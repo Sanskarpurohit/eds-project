@@ -22,7 +22,7 @@
         "id": "contactus",
         "title": "Contact US",
         "environments": [ "edit","dev", "preview", "live", "prod" ],
-        "url": "/tools/contactus/contactUs.html",
+        "url": "http://127.0.0.1:5500/tools/contactus/contactus.html",
         "isPalette": true,
         "passConfig": false,
         "paletteRect": "top: 50px; bottom: 10px; right: 10px; left: auto; width:500px; height: calc(100vh - 60px)"
