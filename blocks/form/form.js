@@ -1,12 +1,22 @@
 import createField from './form-fields.js';
-
+console.log();
 async function createForm(formHref, submitHref) {
   const { pathname } = new URL(formHref);
-  const resp = await fetch(pathname);
-  const json = await resp.json();
+  console.log(formHref);
+  let json;
+
+  try {
+    const resp = await fetch(pathname);
+    if (!resp.ok) throw new Error(`Failed to fetch form data: ${resp.status}`);
+    json = await resp.json();
+  } catch (err) {
+    console.error('Error loading form JSON:', err);
+    return null;
+  }
 
   const form = document.createElement('form');
   form.dataset.action = submitHref;
+  console.log(submitHref);
 
   const fields = await Promise.all(json.data.map((fd) => createField(fd, form)));
   fields.forEach((field) => {
@@ -15,10 +25,11 @@ async function createForm(formHref, submitHref) {
     }
   });
 
-  // group fields into fieldsets
+  // Group fields into fieldsets
+  console.log(fieldsets);
   const fieldsets = form.querySelectorAll('fieldset');
   fieldsets.forEach((fieldset) => {
-    form.querySelectorAll(`[data-fieldset="${fieldset.name}"`).forEach((field) => {
+    form.querySelectorAll(`[data-fieldset="${fieldset.name}"]`).forEach((field) => {
       fieldset.append(field);
     });
   });
@@ -34,12 +45,16 @@ function generatePayload(form) {
       if (field.type === 'radio') {
         if (field.checked) payload[field.name] = field.value;
       } else if (field.type === 'checkbox') {
-        if (field.checked) payload[field.name] = payload[field.name] ? `${payload[field.name]},${field.value}` : field.value;
+        if (field.checked) {
+          if (!payload[field.name]) payload[field.name] = [];
+          payload[field.name].push(field.value);
+        }
       } else {
         payload[field.name] = field.value;
       }
     }
   });
+
   return payload;
 }
 
@@ -47,11 +62,12 @@ async function handleSubmit(form) {
   if (form.getAttribute('data-submitting') === 'true') return;
 
   const submit = form.querySelector('button[type="submit"]');
+  if (!submit) return;
+
   try {
     form.setAttribute('data-submitting', 'true');
     submit.disabled = true;
 
-    // create payload
     const payload = generatePayload(form);
     const response = await fetch(form.dataset.action, {
       method: 'POST',
@@ -60,6 +76,7 @@ async function handleSubmit(form) {
         'Content-Type': 'application/json',
       },
     });
+
     if (response.ok) {
       if (form.dataset.confirmation) {
         window.location.href = form.dataset.confirmation;
@@ -69,8 +86,8 @@ async function handleSubmit(form) {
       throw new Error(error);
     }
   } catch (e) {
-    // eslint-disable-next-line no-console
-    console.error(e);
+    console.error('Form submission error:', e);
+    alert('There was an error submitting the form. Please try again.');
   } finally {
     form.setAttribute('data-submitting', 'false');
     submit.disabled = false;
@@ -84,6 +101,8 @@ export default async function decorate(block) {
   if (!formLink || !submitLink) return;
 
   const form = await createForm(formLink, submitLink);
+  if (!form) return;
+
   block.replaceChildren(form);
 
   form.addEventListener('submit', (e) => {

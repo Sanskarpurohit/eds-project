@@ -17,22 +17,16 @@ export default async function decorate(block) {
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
   
   const fashionContainer = document.querySelector('.fashionblog-container ');
-// Create main wrapper for two columns
 const twoColumnsWrapper = document.createElement('div');
 twoColumnsWrapper.classList.add('two-columns-wrapper');
-// Create left and right column wrappers
 const leftColumn = document.createElement('div');
 leftColumn.classList.add('left-column');
 const rightColumn = document.createElement('div');
 rightColumn.classList.add('right-column');
-// Move all left blocks into left column
 document.querySelectorAll('.left').forEach(el => leftColumn.appendChild(el));
-// Move all right blocks into right column
 document.querySelectorAll('.right').forEach(el => rightColumn.appendChild(el));
-// Add columns to main wrapper
 twoColumnsWrapper.appendChild(leftColumn);
 twoColumnsWrapper.appendChild(rightColumn);
-// Insert after fashion container
 fashionContainer.insertAdjacentElement('afterend', twoColumnsWrapper);
    
 

@@ -3,10 +3,8 @@ import { toClassName } from '../../scripts/aem.js';
 function createFieldWrapper(fd) {
   const fieldWrapper = document.createElement('div');
   if (fd.Style) fieldWrapper.className = fd.Style;
-  fieldWrapper.classList.add('field-wrapper', `${fd.Type}-wrapper`);
-
+  fieldWrapper.classList.add('field-wrapper', `${fd.Type.toLowerCase()}-wrapper`);
   fieldWrapper.dataset.fieldset = fd.Fieldset;
-
   return fieldWrapper;
 }
 
@@ -24,7 +22,7 @@ function createLabel(fd) {
   label.id = generateFieldId(fd, '-label');
   label.textContent = fd.Label || fd.Name;
   label.setAttribute('for', fd.Id);
-  if (fd.Mandatory.toLowerCase() === 'true' || fd.Mandatory.toLowerCase() === 'x') {
+  if ((fd.Mandatory || '').toLowerCase() === 'true' || fd.Mandatory?.toLowerCase() === 'x') {
     label.dataset.required = true;
   }
   return label;
@@ -33,87 +31,75 @@ function createLabel(fd) {
 function setCommonAttributes(field, fd) {
   field.id = fd.Id;
   field.name = fd.Name;
-  field.required = fd.Mandatory && (fd.Mandatory.toLowerCase() === 'true' || fd.Mandatory.toLowerCase() === 'x');
-  field.placeholder = fd.Placeholder;
-  field.value = fd.Value;
+  field.required = (fd.Mandatory || '').toLowerCase() === 'true' || fd.Mandatory?.toLowerCase() === 'x';
+  field.placeholder = fd.Placeholder || '';
+  field.value = fd.Value || '';
 }
 
 const createHeading = (fd) => {
   const fieldWrapper = createFieldWrapper(fd);
-
-  const level = fd.Style && fd.Style.includes('sub-heading') ? 3 : 2;
+  const level = fd.Style?.includes('sub-heading') ? 3 : 2;
   const heading = document.createElement(`h${level}`);
   heading.textContent = fd.Value || fd.Label;
   heading.id = fd.Id;
-
   fieldWrapper.append(heading);
-
   return { field: heading, fieldWrapper };
 };
 
 const createPlaintext = (fd) => {
   const fieldWrapper = createFieldWrapper(fd);
-
   const text = document.createElement('p');
   text.textContent = fd.Value || fd.Label;
   text.id = fd.Id;
-
   fieldWrapper.append(text);
-
   return { field: text, fieldWrapper };
 };
 
 const createSelect = async (fd) => {
   const select = document.createElement('select');
   setCommonAttributes(select, fd);
+
   const addOption = ({ text, value }) => {
     const option = document.createElement('option');
     option.text = text.trim();
     option.value = value.trim();
-    if (option.value === fd.Value) {
-      option.setAttribute('selected', '');
-    }
+    if (option.value === fd.Value) option.setAttribute('selected', '');
     select.add(option);
-    return option;
   };
 
   if (fd.Placeholder) {
     const ph = addOption({ text: fd.Placeholder, value: '' });
-    ph.setAttribute('disabled', '');
+    select.firstChild.setAttribute('disabled', '');
   }
 
   if (fd.Options) {
     let options = [];
     if (fd.Options.startsWith('https://')) {
       const optionsUrl = new URL(fd.Options);
+      console.log(optionsUrl);
       const resp = await fetch(`${optionsUrl.pathname}${optionsUrl.search}`);
       const json = await resp.json();
-      json.data.forEach((opt) => {
-        options.push({
-          text: opt.Option,
-          value: opt.Value || opt.Option,
-        });
-      });
+      options = json.data.map(opt => ({
+        text: opt.Option,
+        value: opt.Value || opt.Option,
+      }));
     } else {
-      options = fd.Options.split(',').map((opt) => ({
+      options = fd.Options.split(',').map(opt => ({
         text: opt.trim(),
         value: opt.trim(),
       }));
     }
-
-    options.forEach((opt) => addOption(opt));
+    options.forEach(addOption);
   }
 
   const fieldWrapper = createFieldWrapper(fd);
   fieldWrapper.append(select);
   fieldWrapper.prepend(createLabel(fd));
-
   return { field: select, fieldWrapper };
 };
 
 const createConfirmation = (fd, form) => {
   form.dataset.confirmation = new URL(fd.Value).pathname;
-
   return {};
 };
 
@@ -143,16 +129,17 @@ const createTextArea = (fd) => {
 
 const createInput = (fd) => {
   const field = document.createElement('input');
-  field.type = fd.Type;
+  field.type = fd.Type.toLowerCase();
   setCommonAttributes(field, fd);
 
   const fieldWrapper = createFieldWrapper(fd);
   const label = createLabel(fd);
   field.setAttribute('aria-labelledby', label.id);
-  fieldWrapper.append(field);
-  if (fd.Type === 'radio' || fd.Type === 'checkbox') {
-    fieldWrapper.append(label);
+
+  if (['radio', 'checkbox'].includes(field.type)) {
+    fieldWrapper.append(field, label);
   } else {
+    fieldWrapper.append(field);
     fieldWrapper.prepend(label);
   }
 
@@ -171,7 +158,6 @@ const createFieldset = (fd) => {
 
   const fieldWrapper = createFieldWrapper(fd);
   fieldWrapper.append(field);
-
   return { field, fieldWrapper };
 };
 
@@ -185,7 +171,6 @@ const createToggle = (fd) => {
   const toggleSwitch = document.createElement('div');
   toggleSwitch.classList.add('switch');
   toggleSwitch.append(field);
-  fieldWrapper.append(toggleSwitch);
 
   const slider = document.createElement('span');
   slider.classList.add('slider');
@@ -194,6 +179,7 @@ const createToggle = (fd) => {
     field.checked = !field.checked;
   });
 
+  fieldWrapper.append(toggleSwitch);
   return { field, fieldWrapper };
 };
 
@@ -201,7 +187,6 @@ const createCheckbox = (fd) => {
   const { field, fieldWrapper } = createInput(fd);
   if (!field.value) field.value = 'checked';
   fieldWrapper.classList.add('selection-wrapper');
-
   return { field, fieldWrapper };
 };
 
@@ -209,7 +194,6 @@ const createRadio = (fd) => {
   const { field, fieldWrapper } = createInput(fd);
   if (!field.value) field.value = fd.Label || 'on';
   fieldWrapper.classList.add('selection-wrapper');
-
   return { field, fieldWrapper };
 };
 
@@ -228,9 +212,8 @@ const FIELD_CREATOR_FUNCTIONS = {
 
 export default async function createField(fd, form) {
   fd.Id = fd.Id || generateFieldId(fd);
-  const type = fd.Type.toLowerCase();
+  const type = fd.Type?.toLowerCase() || 'text';
   const createFieldFunc = FIELD_CREATOR_FUNCTIONS[type] || createInput;
   const fieldElements = await createFieldFunc(fd, form);
-
   return fieldElements.fieldWrapper;
 }
