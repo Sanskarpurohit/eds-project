@@ -132,6 +132,12 @@ style.textContent = `
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
+    nav#nav {
+        display: none;
+}
+  body.appear {
+     display: flex !important;
+}
 `;
 document.head.appendChild(style);
 // Create HTML structure via JS
