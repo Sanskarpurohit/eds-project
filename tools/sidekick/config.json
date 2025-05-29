@@ -20,7 +20,7 @@
       {
         "containerId": "tools",
         "id": "contactus",
-        "title": "Contact US",
+        "title": "Contact Us",
         "environments": [ "edit","dev", "preview", "live", "prod" ],
         "url": "http://127.0.0.1:5500/tools/contactus/contactus.html",
         "isPalette": true,
@@ -41,7 +41,9 @@
         "title": "My Sidekick Library",
         "environments": ["edit","preview"],
         "url": "/tools/sidekick/library.html",
-        "includePaths":["**.docx**"]
+        "includePaths":["**.docx**"],
+        "isPalette": false,
+        "passConfig": false
         
 
         
