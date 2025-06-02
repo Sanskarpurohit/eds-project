@@ -169,26 +169,14 @@
 </form>
 <script>
 
-  // Initialize dataLayer if it doesn't exist
+
 
   window.dataLayer = window.dataLayer || [];
 
   const form = document.getElementById('contactForm');
-  const name=document.getElementById('name').innerText;
-  console.log(name);
-  const name1=document.getElementById('name').textContent;
-  console.log(name1);
-  const name2=document.getElementById('name').innerHTML;
-  console.log(name2);
-  const name3=document.getElementById('name');
-  console.log(name3);
   console.log(form);
-  digitallayer={
-    "user":{
-      name:name,
+  let name;
 
-    }
-  }
   
 
   const successMsg = document.getElementById('successMsg');
@@ -197,7 +185,7 @@
 
     e.preventDefault();
 
-    // Collect form data
+ 
 
     const formData = {
 
@@ -211,21 +199,18 @@
 
     };
 
-    // Push to dataLayer
+  
 
     window.dataLayer.push(formData);
 
     console.log('dataLayer push:', formData);
+    name=formData.contactName;
 
-    // Show success message
+    
 
     successMsg.style.display = 'block';
 
-    // Optional: reset the form
-
     form.reset();
-
-    // Hide message after 3 seconds
 
     setTimeout(() => {
 
@@ -234,6 +219,7 @@
     }, 3000);
 
   });
+  console.log(name);
 </script>
 </body>
 </html>
