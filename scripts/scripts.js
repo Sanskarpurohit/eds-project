@@ -158,6 +158,7 @@ async function loadPage() {
 loadPage();
 
 (() => {
+  console.log("Modal Working");
 
   const MODAL_DOC_URL = '/modal.plain.html'; // Make sure this file exists with your modals
 
