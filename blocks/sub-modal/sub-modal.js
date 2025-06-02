@@ -37,6 +37,9 @@ modals.forEach(modal => {
       inner.classList.add('modal-input');
 
       const input = document.createElement('input');
+      const inputValue = input.innerText;
+      console.log(inputValue);
+
 
       input.type = 'email';
 
@@ -139,4 +142,48 @@ document.addEventListener('keydown', (e) => {
   }
 
 });
+// Listen to all modal subscribe buttons
+
+document.addEventListener('click', function (e) {
+
+  if (e.target.classList.contains('modal-button')) {
+
+    const modal = e.target.closest('.sub-modal');
+
+    const emailInput = modal?.querySelector('.modal-second input[type="email"]');
+
+    if (emailInput && emailInput.value.trim()) {
+
+      const email = emailInput.value.trim();
+
+      // Push to dataLayer
+
+      window.dataLayer = window.dataLayer || [];
+
+      window.dataLayer.push({
+
+        event: 'modalSubscribe',
+
+        email: email,
+
+        modalId: modal.id || null
+
+      });
+
+      console.log('Email captured:', email);
+
+      // Optional: close the modal after submit
+      modal.classList.remove('show');
+      emailInput.value='';
+
+    } else {
+
+      alert('Please enter a valid email address.');
+
+    }
+
+  }
+
+});
+ 
  
