@@ -123,6 +123,23 @@ function loadDelayed() {
   // load anything that can be postponed to the latest here
 }
 
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
 async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
@@ -130,4 +147,133 @@ async function loadPage() {
 }
 
 
+
+
+
+
+
+
+
+
 loadPage();
+
+(() => {
+
+  const MODAL_DOC_URL = '/modal.plain.html'; // Make sure this file exists with your modals
+
+  let modalContainer;
+
+  // Fetch and inject modals from fragment
+
+  fetch(MODAL_DOC_URL)
+
+    .then(res => {
+
+      if (!res.ok) throw new Error('Cannot load modal fragment');
+
+      return res.text();
+
+    })
+
+    .then(html => {
+
+      modalContainer = document.createElement('div');
+
+      modalContainer.style.display = 'none';
+
+      modalContainer.innerHTML = html;
+
+      document.body.appendChild(modalContainer);
+
+      // Add ID to each modal based on its custom class
+
+      modalContainer.querySelectorAll('.sub-modal').forEach(modal => {
+
+        const customClass = [...modal.classList].find(cls => cls.startsWith('custom-'));
+
+        if (customClass) modal.id = customClass;
+
+        // Outside click to close
+
+        modal.addEventListener('click', e => {
+
+          if (e.target === modal) hideAllModals();
+
+        });
+
+      });
+
+      // Add close button handlers if present
+
+      modalContainer.querySelectorAll('.close-btn').forEach(btn => {
+
+        btn.addEventListener('click', hideAllModals);
+
+      });
+
+    })
+
+    .catch(err => console.error('Modal load error:', err));
+
+  // Hide all modals
+
+  function hideAllModals() {
+
+    if (!modalContainer) return;
+
+    modalContainer.style.display = 'none';
+
+    modalContainer.querySelectorAll('.sub-modal.show').forEach(m => m.classList.remove('show'));
+
+  }
+
+  // Show a specific modal by ID
+
+  function showModalById(id) {
+
+    if (!modalContainer) return;
+
+    const modal = modalContainer.querySelector(`#${id}`);
+
+    if (!modal) return;
+
+    hideAllModals();
+
+    modalContainer.style.display = 'block';
+
+    modal.classList.add('show');
+
+  }
+
+  // Global link click handler
+
+  document.addEventListener('click', e => {
+
+    const anchor = e.target.closest('a[href^="#custom-"]');
+
+    if (anchor) {
+
+      e.preventDefault();
+
+      const id = anchor.getAttribute('href').substring(1);
+
+      showModalById(id);
+
+    }
+
+  });
+
+  // ESC to close
+
+  document.addEventListener('keydown', e => {
+
+    if (e.key === 'Escape') {
+
+      hideAllModals();
+
+    }
+
+  });
+
+})();
+ 

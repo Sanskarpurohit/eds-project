@@ -1,156 +1,72 @@
-/* Modal overlay and base */
-
 .sub-modal {
 
     display: none;
   
     position: fixed;
   
-    top: 0; left: 0; right: 0; bottom: 0;
-  
-    background: rgba(0, 0, 0, 0.5);
-  
     z-index: 9999;
   
-    overflow-y: auto;
+    left: 0; top: 0;
   
-    padding: 2rem;
+    width: 100%; height: 100%;
   
-    justify-content: center;
+    overflow: auto;
   
-    align-items: center;
+    background-color: rgba(0,0,0,0.6);
   
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding-top: 60px;
+  
+    transition: 0.3s ease-in-out;
   
   }
   
   .sub-modal.show {
   
-    display: flex;
+    display: block;
   
   }
   
-  /* Modal content container */
-  
-  .sub-modal > div {
+  .modal-first, .modal-second, .modal-third {
   
     background: white;
   
-    border-radius: 8px;
-  
-    max-width: 480px;
-  
-    width: 100%;
-  
     margin: auto;
   
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    padding: 20px;
   
-    padding: 1.5rem 2rem;
+    width: 80%;
   
-    box-sizing: border-box;
+    max-width: 600px;
   
-  }
+    border-radius: 8px;
   
-  /* Sections styling */
-  
-  .section {
-  
-    margin-bottom: 1.5rem;
+    margin-bottom: 10px;
   
   }
   
-  .section.first .text-wrapper p {
-  
-    margin: 0 0 0.75rem;
-  
-    color: #333;
-  
-    font-size: 1rem;
-  
-    line-height: 1.4;
-  
-  }
-  
-  /* Input styles */
-  
-  .section.second .input-wrapper input[type="email"] {
+  .modal-input input {
   
     width: 100%;
   
-    padding: 0.6rem 1rem;
+    padding: 10px;
   
-    font-size: 1rem;
-  
-    border: 1.5px solid #ccc;
-  
-    border-radius: 4px;
-  
-    transition: border-color 0.3s ease;
+    margin-top: 10px;
   
   }
   
-  .section.second .input-wrapper input[type="email"]:focus {
+  .modal-button {
   
-    outline: none;
+    padding: 10px 20px;
   
-    border-color: #a67c00; /* warm golden tone */
+    margin-top: 10px;
   
-    box-shadow: 0 0 5px rgba(166,124,0,0.5);
-  
-  }
-  
-  /* Third section button */
-  
-  .section.third .footer-wrapper button {
-  
-    background-color: #a67c00; /* warm gold */
+    background: #000;
   
     color: white;
   
     border: none;
   
-    padding: 0.6rem 1.25rem;
-  
-    font-size: 1rem;
-  
-    font-weight: 600;
-  
-    border-radius: 4px;
-  
     cursor: pointer;
-  
-    transition: background-color 0.3s ease;
-  
-  }
-  
-  .section.third .footer-wrapper button:hover,
-  
-  .section.third .footer-wrapper button:focus {
-  
-    background-color: #855e00;
-  
-    outline: none;
-  
-  }
-  
-  /* Responsive - center modal vertically on bigger screens */
-  
-  @media (min-width: 600px) {
-  
-    .sub-modal {
-  
-      align-items: center;
-  
-      padding: 3rem;
-  
-    }
-  
-    .sub-modal > div {
-  
-      padding: 2rem 3rem;
-  
-    }
   
   }
    

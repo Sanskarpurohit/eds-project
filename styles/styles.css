@@ -256,3 +256,188 @@ main .section.highlight {
   padding: 40px 0;
 }
 
+
+.sub-modal {
+
+  display: none;
+
+  /* Your modal styling */
+
+  position: fixed;
+
+  top: 0; left: 0; right:0; bottom:0;
+
+  background: rgba(0,0,0,0.5);
+
+  justify-content: center;
+
+  align-items: center;
+
+  z-index: 9999;
+
+}
+
+.sub-modal.show {
+
+  display: flex;
+
+}
+ 
+
+
+
+
+
+
+/* Global font */
+
+* {
+
+  font-family: "Oswald", sans-serif;
+
+}
+
+/* Modal overlay */
+
+.sub-modal {
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100vw;
+
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  padding: 32px;
+
+  box-sizing: border-box;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity 0.3s ease;
+
+  z-index: 1000;
+
+}
+
+/* Show modal */
+
+.sub-modal.show {
+
+  opacity: 1;
+
+  pointer-events: auto;
+
+}
+
+/* Modal content */
+
+.modal-content {
+
+  background: #fff;
+
+  padding: 30px;
+
+  border-radius: 6px;
+
+  max-width: 400px;
+
+  width: 90%;
+
+  position: relative;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
+  box-sizing: border-box;
+
+}
+
+/* Close button */
+
+.close-btn {
+
+  position: absolute;
+
+  top: 10px;
+
+  right: 15px;
+
+  font-size: 24px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  background: transparent;
+
+  color: #000;
+
+  border: none;
+
+}
+
+/* Input */
+
+.modal-input-wrapper input {
+
+  width: 100%;
+
+  padding: 10px;
+
+  margin-top: 10px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 4px;
+
+  font-size: 16px;
+
+}
+
+/* Submit button */
+
+.modal-footer-wrapper button {
+
+  margin-top: 15px;
+
+  width: 100%;
+
+  padding: 10px;
+
+  background: #009688;
+
+  color: #fff;
+
+  border: none;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  font-size: 16px;
+
+  font-weight: bold;
+
+  transition: background-color 0.3s ease;
+
+}
+
+.modal-footer-wrapper button:hover {
+
+  background: #00796b;
+
+}
+ 
