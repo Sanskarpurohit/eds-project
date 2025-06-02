@@ -1,75 +1,62 @@
-
+// Find all modal blocks
 const modals = document.querySelectorAll('.sub-modal');
-modals.forEach(modal => {
- // Find custom class like 'custom-sanskar'
- const customClass = [...modal.classList].find(cls => cls.startsWith('custom-'));
- // Get first-level divs inside modal
- const outerDivs = modal.querySelectorAll(':scope > div');
- // First section
- if (outerDivs[0]) {
-   outerDivs[0].classList.add('section', 'first');
-   const innerFirstDiv = outerDivs[0].querySelector('div');
-   if (innerFirstDiv) {
-     innerFirstDiv.classList.add('text-wrapper');
-   }
+modals.forEach((modal) => {
+ // Find class like 'custom-sanskar'
+ const customClass = [...modal.classList].find(c => c.startsWith('custom-'));
+ // First outer div
+ const firstDiv = modal.children[0];
+ if (firstDiv) firstDiv.classList.add('modal-first');
+ const textWrapper = firstDiv?.querySelector('div');
+ if (textWrapper) textWrapper.classList.add('modal-text');
+ // Second outer div (input section)
+ const secondDiv = modal.children[1];
+ if (secondDiv) secondDiv.classList.add('modal-second');
+ const inputWrapper = secondDiv?.querySelector('div');
+ if (inputWrapper && !inputWrapper.querySelector('input')) {
+   inputWrapper.classList.add('modal-input');
+   const input = document.createElement('input');
+   input.type = 'email';
+   input.placeholder = 'Enter your email';
+   inputWrapper.appendChild(input);
  }
- // Second section - create input inside inner div
- if (outerDivs[1]) {
-   outerDivs[1].classList.add('section', 'second');
-   const innerSecondDiv = outerDivs[1].querySelector('div');
-   if (innerSecondDiv) {
-     innerSecondDiv.classList.add('input-wrapper');
-     if (!innerSecondDiv.querySelector('input')) {
-       const input = document.createElement('input');
-       input.type = 'email';
-       input.placeholder = 'Enter your email';
-       innerSecondDiv.appendChild(input);
+ // Third outer div (footer with h6 > a)
+ const thirdDiv = modal.children[2];
+ if (thirdDiv) thirdDiv.classList.add('modal-third');
+ const footerWrapper = thirdDiv?.querySelector('div');
+ if (footerWrapper) {
+   const h6 = footerWrapper.querySelector('h6');
+   if (h6) {
+     const a = h6.querySelector('a');
+     if (a) {
+       const btn = document.createElement('button');
+       btn.textContent = a.textContent || 'Submit';
+       btn.title = a.title || '';
+       btn.className = 'modal-button';
+       a.replaceWith(btn);
      }
+     h6.remove(); // Remove h6 after replacing link
    }
  }
- // Third section - replace h6 > a with a button, remove h6
- if (outerDivs[2]) {
-   outerDivs[2].classList.add('section', 'third');
-   const innerThirdDiv = outerDivs[2].querySelector('div');
-   if (innerThirdDiv) {
-     innerThirdDiv.classList.add('footer-wrapper');
-     const h6 = innerThirdDiv.querySelector('h6#sub');
-     if (h6) {
-       const anchor = h6.querySelector('a');
-       if (anchor) {
-         const button = document.createElement('button');
-         button.type = 'button';
-         button.title = 'sub';
-         button.textContent = 'sub';
-         // Replace <a> with <button> inside h6
-         anchor.replaceWith(button);
-       }
-       // Replace the whole h6 with the button (unwrap)
-       innerThirdDiv.replaceChild(button, h6);
-     }
-   }
- }
- // Close modal on click outside first-level divs
- modal.addEventListener('click', e => {
-   if (!e.target.closest('.sub-modal > div')) {
+ // Click outside to close
+ modal.addEventListener('click', (e) => {
+   if (!e.target.closest('.modal-first, .modal-second, .modal-third')) {
      modal.classList.remove('show');
    }
  });
 });
-// Open modal on anchor click with href="#custom-..."
-const modalTriggers = document.querySelectorAll('a[href^="#custom-"]');
-modalTriggers.forEach(trigger => {
- trigger.addEventListener('click', e => {
+// Open modal from anchor links like <a href="#custom-sanskar">
+document.querySelectorAll('a[href^="#custom-"]').forEach(link => {
+ link.addEventListener('click', (e) => {
    e.preventDefault();
-   const targetId = trigger.getAttribute('href').slice(1);
-   const targetModal = document.getElementById(targetId);
-   if (targetModal) {
-     targetModal.classList.add('show');
+   const targetId = link.getAttribute('href').substring(1);
+   const modal = document.getElementById(targetId);
+   if (modal && modal.classList.contains('sub-modal')) {
+     modal.classList.add('show');
    }
  });
 });
-// Close all modals on ESC key
-document.addEventListener('keydown', e => {
+// ESC key to close modals
+document.addEventListener('keydown', (e) => {
  if (e.key === 'Escape') {
    document.querySelectorAll('.sub-modal.show').forEach(modal => {
      modal.classList.remove('show');
