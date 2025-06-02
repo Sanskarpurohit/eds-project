@@ -27,6 +27,16 @@
         "passConfig": false,
         "paletteRect": "top: 50px; bottom: 10px; right: 10px; left: auto; width:500px; height: calc(100vh - 60px)"
       },
+      {
+        "containerId": "tools",
+        "id": "pokemon",
+        "title": "Poke Finder",
+        "environments": [ "edit","dev", "preview", "live", "prod" ],
+        "url": "tools/pokemon/pokeMon.html",
+        "isPalette": true,
+        "passConfig": false,
+        "paletteRect": "top: 50px; bottom: 10px; right: 10px; left: auto; width:500px; height: calc(100vh - 60px)"
+      },
    
       {
         "containerId": "tools",
