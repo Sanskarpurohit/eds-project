@@ -160,7 +160,7 @@ loadPage();
 (() => {
   console.log("Modal Working");
 
-  const MODAL_DOC_URL = '/modal.plain.html'; // Make sure this file exists with your modals
+  const MODAL_DOC_URL = '/modal'; // Make sure this file exists with your modals
 
   let modalContainer;
 
