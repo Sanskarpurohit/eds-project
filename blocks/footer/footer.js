@@ -27,10 +27,11 @@ document.querySelectorAll('.left').forEach(el => leftColumn.appendChild(el));
 document.querySelectorAll('.right').forEach(el => rightColumn.appendChild(el));
 twoColumnsWrapper.appendChild(leftColumn);
 twoColumnsWrapper.appendChild(rightColumn);
-fashionContainer.insertAdjacentElement('afterend', twoColumnsWrapper);
+
    
 
   block.append(footer);
+  fashionContainer.insertAdjacentElement('afterend', twoColumnsWrapper);
   
 
 

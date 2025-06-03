@@ -163,11 +163,11 @@ loadPage();
 (() => {
   console.log("Modal Working");
 
-  const MODAL_DOC_URL = '/modal.plain.html'; // Make sure this file exists with your modals
+  const MODAL_DOC_URL = '/modal.plain.html';
 
   let modalContainer;
 
-  // Fetch and inject modals from fragment
+  // Fetch
   fetch(MODAL_DOC_URL)
     .then(res => {
       if (!res.ok) throw new Error('Cannot load modal fragment');
@@ -179,12 +179,10 @@ loadPage();
       modalContainer.innerHTML = html;
       document.body.appendChild(modalContainer);
 
-      // Add ID and structure classes to each modal
       modalContainer.querySelectorAll('.sub-modal').forEach(modal => {
         const customClass = [...modal.classList].find(cls => cls.startsWith('custom-'));
         if (customClass) modal.id = customClass;
 
-        // Assign structure class names
         const outerDivs = modal.querySelectorAll(':scope > div');
 
         if (outerDivs[0]) {
@@ -224,7 +222,6 @@ loadPage();
           }
         }
 
-        // Outside click to close
         modal.addEventListener('click', e => {
           if (!e.target.closest('.modal-first, .modal-second, .modal-third')) {
             modal.classList.remove('show');
@@ -232,21 +229,21 @@ loadPage();
         });
       });
 
-      // Add close button handlers if present
+
       modalContainer.querySelectorAll('.close-btn').forEach(btn => {
         btn.addEventListener('click', hideAllModals);
       });
     })
     .catch(err => console.error('Modal load error:', err));
 
-  // Hide all modals
+  // Hide
   function hideAllModals() {
     if (!modalContainer) return;
     modalContainer.style.display = 'none';
     modalContainer.querySelectorAll('.sub-modal.show').forEach(m => m.classList.remove('show'));
   }
 
-  // Show a specific modal by ID
+  // Show
   function showModalById(id) {
     if (!modalContainer) return;
     const modal = modalContainer.querySelector(`#${id}`);
@@ -256,7 +253,7 @@ loadPage();
     modal.classList.add('show');
   }
 
-  // Global link click handler
+  // Global
   document.addEventListener('click', e => {
     const anchor = e.target.closest('a[href^="#custom-"]');
     if (anchor) {
@@ -266,14 +263,14 @@ loadPage();
     }
   });
 
-  // ESC to close
+
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       hideAllModals();
     }
   });
 
-  // Listen to all modal subscribe buttons
+
   document.addEventListener('click', function (e) {
     if (e.target.classList.contains('modal-button')) {
       const modal = e.target.closest('.sub-modal');
