@@ -1,0 +1,192 @@
+.minicard-v1 {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* Header */
+.minicard-v1-header {
+    text-align: center;
+}
+
+/* Title wrapper */
+.minicard-v1-title-wrapper h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Body wrappers */
+.minicard-v1-image-wrapper img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.minicard-v1-desc-wrapper p,
+.minicard-v1-summary-wrapper p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Interaction bar */
+.interaction-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.like-box a,
+.reply-box a {
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    background-color: #f1f1f1;
+    padding: 5px 10px;
+    transition: background 0.3s;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.like-box a:hover,
+.reply-box a:hover {
+    background-color: #ccc;
+}
+
+/* Replies */
+.reply {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px 15px 15px 0;
+    border-top: 2.5px solid #eee;
+    margin-top: 15px;
+    font-family: "Segoe UI", sans-serif;
+    background-color: #fafafa;
+    border-radius: 6px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
+    transition: background-color 0.3s ease;
+}
+
+.reply:hover {
+    background-color: #f0fdfd;
+}
+
+/* Reply image */
+.reply-img img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Reply name */
+.reply-name p {
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    color: #004d40;
+    font-size: 16px;
+}
+
+/* Reply message */
+.reply-msg p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Comment form container */
+.comment-form {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #f9f9f9;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Inputs for name, image URL, and comment */
+.comment-form input[type="text"] {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 15px;
+    border: 1.8px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.comment-form input[type="text"]:focus {
+    outline: none;
+    border-color: #009688;
+    box-shadow: 0 0 8px rgba(0, 150, 136, 0.4);
+}
+
+/* Submit button */
+.comment-form button {
+    align-self: flex-start;
+    padding: 8px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #009688;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 150, 136, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.comment-form button:hover {
+    background-color: #00796b;
+    box-shadow: 0 5px 10px rgba(0, 120, 107, 0.5);
+}
+
+/* Add Comment button */
+.minicard-v1 > button {
+    margin-top: 15px;
+    padding: 9px 26px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, #00bfa5, #00897b);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 191, 165, 0.4);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    font-family: "Segoe UI", sans-serif;
+    align-self: flex-start;
+}
+
+.minicard-v1 > button:hover {
+    background: linear-gradient(135deg, #00897b, #00695c);
+    box-shadow: 0 6px 16px rgba(0, 105, 92, 0.6);
+}
+
+/* Responsive improvements */
+@media (max-width: 480px) {
+    .comment-form {
+        padding: 12px 15px;
+    }
+    .reply {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .reply-img img {
+        width: 50px;
+        height: 50px;
+    }
+    .reply-name p {
+        font-size: 14px;
+    }
+    .reply-msg p {
+        font-size: 14px;
+    }
+}
