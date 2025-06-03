@@ -1,0 +1,126 @@
+/* Subscribe block main container */
+
+.subscribe {
+
+    max-width: 400px;
+  
+    margin: 40px auto;
+  
+    padding: 32px 24px;
+  
+    background-color: #fff;
+  
+    border: 1px solid #ccc;
+  
+    border-radius: 4px;
+  
+    font-family: "Oswald", sans-serif;
+  
+    box-sizing: border-box;
+  
+  }
+  
+  /* Heading */
+  
+  .subscribe h4 {
+  
+    font-size: 24px;
+  
+    font-weight: bold;
+  
+    text-align: center;
+  
+    margin: 0 0 16px;
+  
+    color: #009688;
+  
+  }
+  
+  /* Description */
+  
+  .subscribe p {
+  
+    font-size: 15px;
+  
+    text-align: center;
+  
+    color: #555;
+  
+    margin: 0 0 16px;
+  
+  }
+  
+  /* Email input field */
+  
+  .custom-input {
+  
+    display: block;
+  
+    width: 100%;
+  
+    padding: 10px 12px;
+  
+    font-size: 16px;
+  
+    border: 1px solid #ccc;
+  
+    font-family: "Oswald", sans-serif;
+  
+    border-radius: 4px;
+  
+    margin-bottom: 16px;
+  
+    box-sizing: border-box;
+  
+    outline: none;
+  
+  }
+  
+  .custom-input:focus {
+  
+    border-color: #009688;
+  
+    box-shadow: 0 0 6px #00968833;
+  
+  }
+  
+  /* Subscribe button */
+  
+  .custom-subscribe-btn {
+  
+    background-color: #009688;
+  
+    color: white;
+  
+    font-size: 16px;
+  
+    font-weight: bold;
+  
+    font-family: "Oswald", sans-serif;
+  
+    border: none;
+  
+    border-radius: 4px;
+  
+    padding: 12px 0;
+  
+    width: 100%;
+  
+    cursor: pointer;
+  
+    transition: background-color 0.3s ease;
+  
+    text-align: center;
+  
+    display: block;
+  
+    text-decoration: none;
+  
+  }
+  
+  .custom-subscribe-btn:hover {
+  
+    background-color: #00796b;
+  
+  }
+   
