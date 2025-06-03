@@ -156,6 +156,9 @@ async function loadPage() {
 
 
 loadPage();
+//
+// Set up all modals with class 'sub-modal'
+
 
 (() => {
   console.log("Modal Working");
@@ -165,116 +168,145 @@ loadPage();
   let modalContainer;
 
   // Fetch and inject modals from fragment
-
   fetch(MODAL_DOC_URL)
-
     .then(res => {
-
       if (!res.ok) throw new Error('Cannot load modal fragment');
-
       return res.text();
-
     })
-
     .then(html => {
-
       modalContainer = document.createElement('div');
-
       modalContainer.style.display = 'none';
-
       modalContainer.innerHTML = html;
-
       document.body.appendChild(modalContainer);
 
-      // Add ID to each modal based on its custom class
-
+      // Add ID and structure classes to each modal
       modalContainer.querySelectorAll('.sub-modal').forEach(modal => {
-
         const customClass = [...modal.classList].find(cls => cls.startsWith('custom-'));
-
         if (customClass) modal.id = customClass;
 
+        // Assign structure class names
+        const outerDivs = modal.querySelectorAll(':scope > div');
+
+        if (outerDivs[0]) {
+          outerDivs[0].classList.add('modal-first');
+          const inner = outerDivs[0].querySelector('div');
+          if (inner) inner.classList.add('modal-text');
+        }
+
+        if (outerDivs[1]) {
+          outerDivs[1].classList.add('modal-second');
+          const inner = outerDivs[1].querySelector('div');
+          if (inner && !inner.querySelector('input')) {
+            inner.classList.add('modal-input');
+            const input = document.createElement('input');
+            input.type = 'email';
+            input.placeholder = 'Enter your email';
+            inner.appendChild(input);
+          }
+        }
+
+        if (outerDivs[2]) {
+          outerDivs[2].classList.add('modal-third');
+          const inner = outerDivs[2].querySelector('div');
+          if (inner) {
+            inner.classList.add('modal-footer');
+            const h6 = inner.querySelector('h6');
+            if (h6) {
+              const a = h6.querySelector('a');
+              if (a) {
+                const btn = document.createElement('button');
+                btn.textContent = 'Subscribe';
+                btn.className = 'modal-button';
+                inner.appendChild(btn);
+                h6.remove();
+              }
+            }
+          }
+        }
+
         // Outside click to close
-
         modal.addEventListener('click', e => {
-
-          if (e.target === modal) hideAllModals();
-
+          if (!e.target.closest('.modal-first, .modal-second, .modal-third')) {
+            modal.classList.remove('show');
+          }
         });
-
       });
 
       // Add close button handlers if present
-
       modalContainer.querySelectorAll('.close-btn').forEach(btn => {
-
         btn.addEventListener('click', hideAllModals);
-
       });
-
     })
-
     .catch(err => console.error('Modal load error:', err));
 
   // Hide all modals
-
   function hideAllModals() {
-
     if (!modalContainer) return;
-
     modalContainer.style.display = 'none';
-
     modalContainer.querySelectorAll('.sub-modal.show').forEach(m => m.classList.remove('show'));
-
   }
 
   // Show a specific modal by ID
-
   function showModalById(id) {
-
     if (!modalContainer) return;
-
     const modal = modalContainer.querySelector(`#${id}`);
-
     if (!modal) return;
-
     hideAllModals();
-
     modalContainer.style.display = 'block';
-
     modal.classList.add('show');
-
   }
 
   // Global link click handler
-
   document.addEventListener('click', e => {
-
     const anchor = e.target.closest('a[href^="#custom-"]');
-
     if (anchor) {
-
       e.preventDefault();
-
       const id = anchor.getAttribute('href').substring(1);
-
       showModalById(id);
-
     }
-
   });
 
   // ESC to close
-
   document.addEventListener('keydown', e => {
-
     if (e.key === 'Escape') {
-
       hideAllModals();
-
     }
-
   });
 
+  // Listen to all modal subscribe buttons
+  document.addEventListener('click', function (e) {
+    if (e.target.classList.contains('modal-button')) {
+      const modal = e.target.closest('.sub-modal');
+      const emailInput = modal?.querySelector('.modal-second input[type="email"]');
+      if (emailInput && emailInput.value.trim()) {
+        const email = emailInput.value.trim();
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'modalSubscribe',
+          email: email,
+          modalId: modal.id || null
+        });
+        console.log('Email captured:', email);
+        modal.classList.remove('show');
+        emailInput.value = '';
+      } else {
+        alert('Please enter a valid email address.');
+      }
+    }
+  });
 })();
+
  
+ 
+
+
+
+
+
+
+
+
+
+
+
+//
