@@ -43,7 +43,7 @@ if (subscribeBlock) {
 
   const anchor = buttonInnerDiv.querySelector('a');
 
-  anchor.className = 'custom-subscribe-btn';
+  anchor.className = 'custom-subscribe-btnNew';
 
   anchor.href = 'javascript:void(0)';
 

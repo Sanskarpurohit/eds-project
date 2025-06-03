@@ -84,7 +84,7 @@
   
   /* Subscribe button */
   
-  .custom-subscribe-btn {
+  .custom-subscribe-btnNew {
   
     background-color: #f44336;
     color: white !important;
@@ -115,7 +115,7 @@
   
   }
   
-  .custom-subscribe-btn:hover {
+  .custom-subscribe-btnNew:hover {
   
     background-color: #00796b;
     text-decoration: none;
