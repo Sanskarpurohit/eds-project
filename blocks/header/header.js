@@ -170,6 +170,7 @@ export default async function decorate(block) {
 
   
   block.append(navWrapper);
+  ///search
   document.querySelectorAll('.searchbar').forEach(searchbar => {
 
     const containerDiv = searchbar.querySelector(':scope > div');
@@ -192,7 +193,7 @@ export default async function decorate(block) {
   
     input.classList.add('search-input');
   
-    input.style.display = 'none'; // hidden initially
+    input.style.display = ''; // hidden initially
   
     inputDiv.appendChild(input);
   
@@ -256,7 +257,7 @@ export default async function decorate(block) {
   
     const toggleOrSearch = async () => {
   
-      if (input.style.display === 'none') {
+      if (input.style.display === '') {
   
         input.style.display = 'inline-block';
   
