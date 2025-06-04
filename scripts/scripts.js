@@ -293,6 +293,85 @@ loadPage();
       }
     }
   });
+
+  (function setupAuthDisplay() {
+
+    const interval = setInterval(() => {
+  
+      const authContainer = document.querySelector('[data-id="user-auth-status"]');
+  
+      if (authContainer) {
+  
+        clearInterval(interval);
+  
+        const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+  
+        const username = localStorage.getItem('username');
+  
+        if (isLoggedIn && username) {
+  
+          const wrapper = document.createElement('div');
+  
+          wrapper.style.display = 'flex';
+  
+          wrapper.style.alignItems = 'center';
+  
+          wrapper.style.justifyContent = 'flex-end';
+  
+          wrapper.style.gap = '10px';
+  
+          const welcome = document.createElement('p');
+  
+          welcome.textContent = `Welcome, ${username}`;
+  
+          welcome.style.margin = '0';
+  
+          welcome.style.fontWeight = '600';
+  
+          const logout = document.createElement('button');
+  
+          logout.textContent = 'Logout';
+  
+          logout.style.padding = '5px 10px';
+  
+          logout.style.border = 'none';
+  
+          logout.style.backgroundColor = '#009688';
+  
+          logout.style.color = '#fff';
+  
+          logout.style.borderRadius = '4px';
+  
+          logout.style.cursor = 'pointer';
+  
+          logout.addEventListener('click', () => {
+  
+            localStorage.removeItem('loggedIn');
+  
+            localStorage.removeItem('username');
+  
+            window.location.href = '/login';
+  
+          });
+  
+          wrapper.appendChild(welcome);
+  
+          wrapper.appendChild(logout);
+  
+          authContainer.appendChild(wrapper);
+  
+        }
+  
+      }
+  
+    }, 100);
+  
+  })();
+   
+
+
+
+  //
 })();
 
 

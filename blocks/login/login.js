@@ -1,116 +1,104 @@
-// Get containers (assuming HTML is already loaded before this script runs)
+(async () => {
 
-const loginDiv = document.querySelector('.login');
-
-const usernameInputContainer = loginDiv.children[0].children[1];
-
-const passwordInputContainer = loginDiv.children[1].children[1];
-
-const buttonContainer = loginDiv.children[2].querySelector('div');
-
-// Create username input
-
-const usernameInput = document.createElement('input');
-
-usernameInput.type = 'text';
-
-usernameInput.placeholder = 'Enter username';
-
-usernameInput.classList.add('login-input');
-
-usernameInputContainer.appendChild(usernameInput);
-
-// Create password input
-
-const passwordInput = document.createElement('input');
-
-passwordInput.type = 'password';
-
-passwordInput.placeholder = 'Enter password';
-
-passwordInput.classList.add('login-input');
-
-passwordInputContainer.appendChild(passwordInput);
-
-// Create submit button (anchor tag)
-
-const submitBtn = document.createElement('a');
-
-submitBtn.href = '#';
-
-submitBtn.textContent = 'Submit';
-
-submitBtn.classList.add('login-submit');
-
-buttonContainer.appendChild(submitBtn);
-
-// Create error message element
-
-const errorMsg = document.createElement('p');
-
-errorMsg.style.color = 'red';
-
-errorMsg.style.marginTop = '10px';
-
-errorMsg.style.display = 'none';
-
-buttonContainer.appendChild(errorMsg);
-
-// Handle click on submit button
-
-submitBtn.addEventListener('click', async (e) => {
-
-  e.preventDefault();
-
-  const username = usernameInput.value.trim();
-
-  const password = passwordInput.value.trim();
-
-  if (!username || !password) {
-
-    errorMsg.textContent = 'Please enter both username and password.';
-
-    errorMsg.style.display = 'block';
-
-    return;
-
-  }
-
-  try {
-
-    const response = await fetch('/logininfo.json');
-
-    if (!response.ok) throw new Error('Failed to load login info');
-
-    const users = await response.json();
-
-    const user = users.find(u => u.username === username && u.password === password);
-
-    if (user) {
-
-      errorMsg.style.display = 'none';
-
-      // Redirect to user's page
-
-      window.location.href = user.redirect || '/';
-
-    } else {
-
-      errorMsg.textContent = 'Invalid username or password.';
-
-      errorMsg.style.display = 'block';
-
-    }
-
-  } catch (err) {
-
-    errorMsg.textContent = 'Error checking login info, please try again later.';
-
-    errorMsg.style.display = 'block';
-
-    console.error(err);
-
-  }
-
-});
- 
+    const loginContainer = document.querySelector('.login');
+  
+    if (!loginContainer) return;
+  
+    // Add structure and classes
+  
+    const [userDiv, passDiv, submitDiv] = loginContainer.children;
+  
+    // Username
+  
+    userDiv.classList.add('login-field');
+  
+    const usernameLabel = userDiv.querySelector('p');
+  
+    usernameLabel.textContent = 'Enter your username';
+  
+    const usernameInput = document.createElement('input');
+  
+    usernameInput.type = 'text';
+  
+    usernameInput.placeholder = 'Username';
+  
+    usernameInput.classList.add('login-input');
+  
+    userDiv.appendChild(usernameInput);
+  
+    // Password
+  
+    passDiv.classList.add('login-field');
+  
+    const passwordLabel = passDiv.querySelector('p');
+  
+    passwordLabel.textContent = 'Enter your password';
+  
+    const passwordInput = document.createElement('input');
+  
+    passwordInput.type = 'password';
+  
+    passwordInput.placeholder = 'Password';
+  
+    passwordInput.classList.add('login-input');
+  
+    passDiv.appendChild(passwordInput);
+  
+    // Submit button
+  
+    const buttonContainer = submitDiv.querySelector('.button-container');
+  
+    const button = buttonContainer.querySelector('a');
+  
+    button.textContent = 'Submit';
+  
+    button.style.cursor = 'pointer';
+  
+    button.addEventListener('click', async (e) => {
+  
+      e.preventDefault();
+  
+      const username = usernameInput.value.trim();
+  
+      const password = passwordInput.value.trim();
+  
+      if (!username || !password) return alert('Please fill in both fields.');
+  
+      try {
+  
+        const res = await fetch('/logininfo.json');
+  
+        const json = await res.json();
+  
+        const users = json?.data || [];
+  
+        const match = users.find(u => u.username === username && u.password === password);
+  
+        if (match) {
+  
+          localStorage.setItem('loggedIn', 'true');
+  
+          localStorage.setItem('user', JSON.stringify(match));
+  
+          const redirect = sessionStorage.getItem('redirectAfterLogin') || '/';
+  
+          window.location.href = redirect;
+  
+        } else {
+  
+          alert('Invalid credentials!');
+  
+        }
+  
+      } catch (err) {
+  
+        console.error('Login error:', err);
+  
+        alert('Login failed!');
+  
+      }
+  
+    });
+  
+  })();
+   

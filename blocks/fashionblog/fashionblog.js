@@ -1,6 +1,8 @@
 document.querySelectorAll(".fashionblog-container").forEach((right) => {
   right.classList.add("center");
 });
+
+ 
 const fashionblog = document.querySelector(".fashionblog");
 const imageContainer = fashionblog.children[0];
 imageContainer.classList.add("image-container");
