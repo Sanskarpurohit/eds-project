@@ -49,7 +49,7 @@
   
   }
   
-  #search a {
+  .searchbox a {
   
     display: flex;
   
@@ -67,13 +67,13 @@
   
   }
   
-  #search a:hover {
+  .searchbox a:hover {
   
     background-color: #00796b;
   
   }
   
-  #search img {
+  .searchbox img {
   
     display: block;
   

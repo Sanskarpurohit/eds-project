@@ -2,6 +2,7 @@ const containerDiv = document.querySelector('.searchbar > div');
 const inputDiv = containerDiv.children[0];
 const buttonDiv = containerDiv.children[1];
 buttonDiv.classList.add('search-btn-container');
+buttonDiv.querySelector("h3").classList.add("searchbox");
 const input = document.createElement('input');
 input.type = 'text';
 input.placeholder = 'Search blog post...';
