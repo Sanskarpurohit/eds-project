@@ -75,4 +75,52 @@
     height: 20px;
   
   }
+  @media (max-width: 600px) {
+
+    .searchbar.block {
+  
+      flex-direction: row;
+  
+      flex-wrap: nowrap;
+  
+      justify-content: flex-end;
+      float:none;
+  
+    }
+  
+    .search-input {
+  
+      width: 120px;
+  
+      font-size: 10px;
+  
+      padding: 4px 6px;
+  
+    }
+  
+    .search-input:focus {
+  
+      width: 180px;
+  
+    }
+  
+    .searchbox a {
+  
+      height: 24px;
+  
+      width: 24px;
+  
+      padding: 2px;
+  
+    }
+  
+    .searchbox img {
+  
+      width: 14px;
+  
+      height: 14px;
+  
+    }
+  
+  }
    
