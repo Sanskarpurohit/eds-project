@@ -1,0 +1,121 @@
+.login {
+
+    max-width: 360px;
+  
+    margin: 60px auto;
+  
+    padding: 30px 28px;
+  
+    background: #ffffff;
+  
+    border-radius: 12px;
+  
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
+  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+  }
+  
+  .login-row {
+  
+    display: flex;
+  
+    flex-direction: column;
+  
+    margin-bottom: 24px;
+  
+  }
+  
+  .label-container {
+  
+    font-weight: 600;
+  
+    font-size: 15px;
+  
+    color: #222;
+  
+    margin-bottom: 8px;
+  
+  }
+  
+  .input-container {
+  
+    width: 100%;
+  
+  }
+  
+  .login-input {
+  
+    width: 100%;
+  
+    padding: 12px 16px;
+  
+    font-size: 16px;
+  
+    border: 1.8px solid #ddd;
+  
+    border-radius: 10px;
+  
+    transition: all 0.3s ease;
+  
+    outline: none;
+  
+    box-shadow: inset 0 1px 3px #f0f0f0;
+  
+  }
+  
+  .login-input:focus {
+  
+    border-color: #00b894;
+  
+    box-shadow: 0 0 8px #00b894aa;
+  
+  }
+  
+  .button-container {
+  
+    text-align: right;
+  
+  }
+  
+  .login-submit {
+  
+    display: inline-block;
+  
+    background-color: #00b894;
+  
+    color: white;
+  
+    font-weight: 700;
+  
+    padding: 12px 28px;
+  
+    border-radius: 30px;
+  
+    text-decoration: none;
+  
+    letter-spacing: 1.1px;
+  
+    box-shadow: 0 6px 12px #00b894aa;
+  
+    cursor: pointer;
+  
+    user-select: none;
+  
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  
+  }
+  
+  .login-submit:hover {
+  
+    background-color: #019875;
+  
+    box-shadow: 0 8px 15px #019875cc;
+  
+  }
+  p#login-ptag {
+    justify-content: center;
+    display: flex
+;
+  }
+   
