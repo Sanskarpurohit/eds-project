@@ -15,18 +15,13 @@
   
   .search-input {
   
+    margin-top: 27px;
     width: 180px;
-  
-    padding: 8px 12px;
-  
+    padding: 2px 4px;
     border-radius: 20px;
-  
     border: 1.5px solid #009688;
-  
     outline: none;
-  
-    font-size: 14px;
-  
+    font-size: 10px;
     transition: width 0.3s ease, opacity 0.3s ease;
   
   }
@@ -51,19 +46,17 @@
   
   .searchbox a {
   
-    display: flex;
-  
+    display: flex
+;
     align-items: center;
-  
     justify-content: center;
-  
     background-color: #009688;
-  
     border-radius: 50%;
-  
-    padding: 8px;
-  
+    padding: 2px;
     transition: background-color 0.3s ease;
+    margin-top: 6px;
+    height: 21px;
+    width: 20px;
   
   }
   
