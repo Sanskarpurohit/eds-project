@@ -4,6 +4,8 @@ header .nav-wrapper {
   background: linear-gradient(135deg, #cfd8dc, #b0bec5);
   backdrop-filter: blur(10px);
   width: 100%;
+  position: absolute;
+  z-index: 10000;
   /* z-index: 2;
   position: fixed;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
@@ -459,6 +461,8 @@ header nav .nav-sections ul > li > ul > li {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 
     border-radius: 8px;
+    z-index: 9999;
+    position: absolute;
 
   }
 
