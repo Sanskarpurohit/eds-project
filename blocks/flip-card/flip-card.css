@@ -1,12 +1,22 @@
-/* Grid container */
-*{
-    font-family: math;
-}
-.flip-card {
+* {
+
+    font-family: 'Poppins', sans-serif;
+  
+    box-sizing: border-box;
+  
+    margin: 0;
+  
+    padding: 0;
+  
+  }
+  
+  /* Grid container */
+  
+  .flip-card {
 
     display: grid;
   
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   
     gap: 24px;
   
@@ -14,15 +24,18 @@
   
     background: #f9f9f9;
   
-    font-family: 'Poppins', sans-serif;
+    
+  
+    max-width: 1200px;  
+  
+    margin: 0 auto;    
   
   }
+   
   
-  /* Each card container */
+  /* Each card */
   
   .card {
-  
-    /* background: white; */
   
     border-radius: 12px;
   
@@ -34,24 +47,23 @@
   
     flex-direction: column;
   
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
   
     cursor: pointer;
   
-    height: 100%;
-    width: 379px;
+    background: #fff;
   
   }
-  
-  /* Hover shadow effect on card */
   
   .card:hover {
   
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
   
+    transform: translateY(-4px);
+  
   }
   
-  /* Image container */
+  /* Image */
   
   .card-image picture,
   
@@ -59,11 +71,9 @@
   
     width: 100%;
   
-    height: auto;
+    height: 260px;
   
-    max-height: 280px;
-  
-    object-fit: none;
+    object-fit: cover;
   
     transition: transform 0.4s ease;
   
@@ -73,15 +83,13 @@
   
   }
   
-  /* Subtle zoom on image hover */
-  
   .card:hover .card-image img {
   
     transform: scale(1.05);
   
   }
   
-  /* Text container for details */
+  /* Text sections */
   
   .card-title,
   
@@ -93,17 +101,19 @@
   
     padding: 0 1.5rem;
   
-    margin: 0.3rem 0;
+    margin: 0.4rem 0;
   
     color: #222;
   
+    transition: color 0.3s ease, transform 0.3s ease;
+  
   }
   
-  /* Product title */
+  /* Title */
   
   .card-title p {
   
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   
     font-weight: 700;
   
@@ -111,15 +121,23 @@
   
     color: #111;
   
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.3rem;
   
     text-transform: uppercase;
   
     user-select: none;
   
+    transition: color 0.3s ease;
+  
   }
   
-  /* Description text */
+  .card:hover .card-title p {
+  
+    color: #e63946;
+  
+  }
+  
+  /* Description */
   
   .card-desc p {
   
@@ -129,15 +147,23 @@
   
     color: #555;
   
-    line-height: 1.4;
+    line-height: 1.5;
   
     user-select: text;
   
-    min-height: 3.3em; /* fix height for uniform cards */
+    min-height: 3.3em;
+  
+    transition: color 0.3s ease;
   
   }
   
-  /* Price styling */
+  .card:hover .card-desc p {
+  
+    color: #333;
+  
+  }
+  
+  /* Price */
   
   .card-price p {
   
@@ -145,15 +171,23 @@
   
     font-weight: 700;
   
-    color: #e63946; /* warm red */
+    color: #e63946;
   
     margin-top: 0.5rem;
   
     user-select: none;
   
+    transition: transform 0.3s ease;
+  
   }
   
-  /* Buy Now button container */
+  .card:hover .card-price p {
+  
+    transform: scale(1.05);
+  
+  }
+  
+  /* Buy Button Container */
   
   .card-buy p {
   
@@ -165,7 +199,7 @@
   
   }
   
-  /* Buy Now button */
+  /* Buy Now Button */
   
   .card-buy a {
   
@@ -187,13 +221,7 @@
   
     box-shadow: 0 6px 15px rgba(230, 57, 70, 0.4);
   
-    transition:
-  
-      background-color 0.3s ease,
-  
-      box-shadow 0.3s ease,
-  
-      transform 0.2s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
   
   }
   
@@ -212,4 +240,108 @@
     cursor: pointer;
   
   }
+  
+  /* Responsive tweaks */
+  
+  @media screen and (max-width: 768px) {
+  
+    .flip-card {
+  
+      padding: 1rem;
+  
+      gap: 16px;
+  
+    }
+  
+    .card-image img {
+  
+      height: 220px;
+  
+    }
+  
+    .card-title p {
+  
+      font-size: 1rem;
+  
+    }
+  
+    .card-desc p {
+  
+      font-size: 0.85rem;
+  
+    }
+  
+    .card-price p {
+  
+      font-size: 1rem;
+  
+    }
+  
+  }
+  /* Tablet view: 2 columns */
+
+@media screen and (max-width: 1024px) {
+
+    .flip-card {
+  
+      grid-template-columns: repeat(2, 1fr);
+  
+      padding: 1.5rem;
+  
+    }
+  
+    .card-image img {
+  
+      height: 220px;
+  
+    }
+  
+  }
+  
+  /* Mobile view: 1 column */
+  
+  @media screen and (max-width: 600px) {
+  
+    .flip-card {
+  
+      grid-template-columns: 1fr;
+  
+      padding: 1rem;
+  
+    }
+  
+    .card-image img {
+  
+      height: 200px;
+  
+    }
+  
+    .card-title p {
+  
+      font-size: 1rem;
+  
+    }
+  
+    .card-desc p {
+  
+      font-size: 0.85rem;
+  
+    }
+  
+    .card-price p {
+  
+      font-size: 1rem;
+  
+    }
+  
+    .card-buy a {
+  
+      font-size: 0.9rem;
+  
+      padding: 0.45rem 1.2rem;
+  
+    }
+  
+  }
+   
    
