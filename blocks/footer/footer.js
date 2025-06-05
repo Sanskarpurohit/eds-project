@@ -34,8 +34,10 @@ twoColumnsWrapper.appendChild(rightColumn);
   fashionContainer.insertAdjacentElement('afterend', twoColumnsWrapper);
   
 
-
-  
+//helix
+  document.querySelectorAll('a[href*=".pdf"]').forEach(anchor => {
+    anchor.setAttribute('data-pdf', 'true');
+  });
   
 }
 
