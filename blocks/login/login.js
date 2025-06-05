@@ -4,17 +4,15 @@
   
     if (!loginContainer) return;
   
-    // Add structure and classes
   
     const [userDiv, passDiv, submitDiv] = loginContainer.children;
   
-    // Username
   
     userDiv.classList.add('login-field');
   
-    const usernameLabel = userDiv.querySelector('p');
+    // const usernameLabel = userDiv.querySelector('p');
   
-    usernameLabel.textContent = 'Enter your username';
+    // usernameLabel.textContent = 'Enter your username';
   
     const usernameInput = document.createElement('input');
   
@@ -30,9 +28,9 @@
   
     passDiv.classList.add('login-field');
   
-    const passwordLabel = passDiv.querySelector('p');
+    // const passwordLabel = passDiv.querySelector('p');
   
-    passwordLabel.textContent = 'Enter your password';
+    // passwordLabel.textContent = 'Enter your password';
   
     const passwordInput = document.createElement('input');
   
@@ -47,6 +45,8 @@
     // Submit button
   
     const buttonContainer = submitDiv.querySelector('.button-container');
+    buttonContainer.classList.add("custombtnLogin");
+
   
     const button = buttonContainer.querySelector('a');
   

@@ -1,121 +1,188 @@
 .login {
 
-    max-width: 360px;
-  
-    margin: 60px auto;
-  
-    padding: 30px 28px;
-  
-    background: #ffffff;
-  
+  max-width: 360px;
+
+  margin: 60px auto;
+
+  padding: 32px 30px;
+
+  background: linear-gradient(145deg, #f8f8f8, #ffffff);
+
+  border-radius: 16px;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+
+  font-family: 'Poppins', sans-serif;
+
+}
+
+.login-row {
+
+  display: flex;
+
+  flex-direction: column;
+
+  margin-bottom: 24px;
+
+}
+
+.label-container {
+
+  font-weight: 600;
+
+  font-size: 15px;
+
+  color: #333;
+
+  margin-bottom: 8px;
+
+}
+
+.input-container {
+
+  width: 100%;
+
+}
+
+.login-input {
+
+  width: 100%;
+
+  padding: 12px 14px;
+
+  font-size: 15px;
+
+  border: 1.6px solid #dcdcdc;
+
+  border-radius: 10px;
+
+  background: #fcfcfc;
+
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03);
+
+  transition: all 0.3s ease;
+
+  outline: none;
+
+}
+
+.login-input:focus {
+
+  border-color: #4a90e2;
+
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+
+}
+
+.button-container {
+
+  text-align: right;
+
+  margin-top: 10px;
+
+}
+
+.login-submit {
+
+  display: inline-block;
+
+  background-color: red;
+
+  color: white;
+
+  font-weight: 700;
+
+  padding: 12px 24px;
+
+  border-radius: 30px;
+
+  text-decoration: none;
+
+  letter-spacing: 0.8px;
+
+  box-shadow: 0 6px 14px rgba(74, 144, 226, 0.4);
+
+  cursor: pointer;
+
+  user-select: none;
+
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.custombtnLogin  a:hover {
+
+  background-color: #357ab7 !important;
+
+  box-shadow: 0 8px 18px rgba(53, 122, 183, 0.5);
+
+}
+
+p#login-ptag {
+
+  justify-content: center;
+
+  display: flex;
+
+  font-size: 14px;
+
+  color: #555;
+
+}
+@media (max-width: 768px) {
+  .login {
+    margin: 40px 20px;
+    padding: 24px 20px;
     border-radius: 12px;
-  
-    box-shadow: 0 8px 20px rgb(0 0 0 / 0.1);
-  
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
   }
-  
-  .login-row {
-  
-    display: flex;
-  
-    flex-direction: column;
-  
-    margin-bottom: 24px;
-  
-  }
-  
-  .label-container {
-  
-    font-weight: 600;
-  
-    font-size: 15px;
-  
-    color: #222;
-  
-    margin-bottom: 8px;
-  
-  }
-  
-  .input-container {
-  
-    width: 100%;
-  
-  }
-  
   .login-input {
-  
-    width: 100%;
-  
-    padding: 12px 10px;
-  
-    font-size: 16px;
-  
-    border: 1.8px solid #ddd;
-  
-    border-radius: 10px;
-  
-    transition: all 0.3s ease;
-  
-    outline: none;
-  
-    box-shadow: inset 0 1px 3px #f0f0f0;
-  
+    font-size: 14px;
+    padding: 10px 12px;
   }
-  
-  .login-input:focus {
-  
-    border-color: #00b894;
-  
-    box-shadow: 0 0 8px #00b894aa;
-  
-  }
-  
-  .button-container {
-  
-    text-align: right;
-  
-  }
-  
   .login-submit {
-  
-    display: inline-block;
-  
-    background-color: #00b894;
-  
-    color: white;
-  
-    font-weight: 700;
-  
-    padding: 12px 28px;
-  
-    border-radius: 30px;
-  
-    text-decoration: none;
-  
-    letter-spacing: 1.1px;
-  
-    box-shadow: 0 6px 12px #00b894aa;
-  
-    cursor: pointer;
-  
-    user-select: none;
-  
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  
+    padding: 10px 20px;
+    font-size: 14px;
   }
-  
-  .login-submit:hover {
-  
-    background-color: #019875;
-  
-    box-shadow: 0 8px 15px #019875cc;
-  
+ }
+ @media (max-width: 480px) {
+  .login {
+    margin: 30px 16px;
+    padding: 20px 16px;
   }
-  p#login-ptag {
-    justify-content: center;
+  .label-container {
+    font-size: 14px;
+  }
+  .login-submit {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+  .button-container {
+    text-align: center;
+  }
+ }
+ .custombtnLogin p {
+  display: flex
+  ;
+      justify-content: center;
+  }
+
+  .section.welcomeheading >div >p {
+    color: inherit;
+    text-align: center;
+    font-family: emoji;
+    font-size: larger;
     display: flex
 ;
+    justify-content: center;
+    background-color: darkcyan;
+    padding: 29px;
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
   }
-   
+  .section.welcomeheading >div{
+    padding: 0;
+  }
+  .custombtnLogin  a {
+    background-color: #009688 !important;
+  }
