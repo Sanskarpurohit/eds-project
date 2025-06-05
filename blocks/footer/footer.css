@@ -1,45 +1,105 @@
 footer {
-  background-color: var(--light-color);
+
+  font-family: 'Poppins', sans-serif;
+  /*background: linear-gradient(135deg, #1e1e2f, #2e2e42);*/
+  background: linear-gradient(135deg, #cfd8dc, #b0bec5);
+  
+  color: #e0e0e0;
+
   font-size: var(--body-font-size-xs);
-  background-color:  #616161;
+
+  position: relative;
+
 }
 
 footer .footer > div {
+
   margin: auto;
+
   max-width: 1200px;
-  padding: 40px 24px 24px;
+
+  padding: 10px 16px 10px;
+
 }
 
 footer .footer p {
+
   margin: 0;
+
+  color: #37474f;
+
 }
 
-@media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
-  }
+footer .footer p a {
+
+  color: #37474f;
+
+
+  text-decoration: underline;
+
 }
+
+footer .footer p a:hover {
+
+  color: #ffffff;
+
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+
+}
+
+/* Footer "To The Top" Button */
 
 .tothetop div .button-container p a {
-  display: flex;
-  align-items: center; 
-  border-radius: 0px;
-  width: fit-content;
-  background-color: black;
-  color: white;
-  gap: 3px;
-  text-decoration: none; 
-  padding: 5px 10px; 
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 6px 14px;
+
+  border-radius: 6px;
+
+  background: #3b3b5c;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  transition: background 0.3s ease, transform 0.2s ease;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+
+}
+
+.tothetop div .button-container p a:hover {
+
+  background: #5b5bb5;
+
+  transform: translateY(-2px);
+
 }
 
 .tothetop div .button-container p a .icon-uparrow img {
-  width: 19px;
+
+  width: 18px;
+
   height: auto;
+
 }
 
 .tothetop div .button-container p a .text {
-  font-size: 14px; 
+
+  font-size: 14px;
+
 }
+
+
 .default-content-wrapper p {
   color: white;
 }
