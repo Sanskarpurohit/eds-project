@@ -159,7 +159,7 @@ async function loadPage() {
 
 loadPage();
 //
-// Set up all modals with class 'sub-modal'
+//'sub-modal'
 
 
 (() => {
@@ -303,21 +303,16 @@ loadPage();
       const res = await fetch('/protectedpages.json');
       const json = await res.json();
       console.log('Full JSON:', json);
-  
-      // Extract all protected page paths from the data array
+
       protectedpages = json.data.map(item => item.protectedpages.toLowerCase());
       console.log('Protected Pages:', protectedpages);
   
     } catch (err) {
       console.error('Failed to fetch protectedpages.json', err);
     }
-  
-    // Get current page path (like "/dashboard.html")
+
     const currentPath = window.location.pathname.toLowerCase();
-  
-    // Check if current page needs login
     if (protectedpages.includes(currentPath)) {
-      // If not logged in, redirect to login page
       if (localStorage.getItem('loggedIn') !== 'true') {
         sessionStorage.setItem('redirectAfterLogin', window.location.href);
         window.location.href = '/login';

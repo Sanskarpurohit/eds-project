@@ -208,6 +208,7 @@ export default async function decorate(block) {
           const res = await fetch('/query-index.json');
   
           dataIndex = await res.json();
+          console.log(dataIndex);
   
         } catch (err) {
   
@@ -228,6 +229,7 @@ export default async function decorate(block) {
       const allData = await fetchData();
   
       const matches = allData.filter(item => {
+        // console.log(matches);
   
         const titleMatch = item.title?.toLowerCase().includes(query);
   

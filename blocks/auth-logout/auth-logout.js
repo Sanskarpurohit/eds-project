@@ -5,11 +5,11 @@ function updateLogoutUI() {
  const userJson = localStorage.getItem('user');
     const userobj=JSON.parse(userJson);
     const username=userobj.username;
-    console.log(username);
+    console.log("User-:"+username);
  if (logoutBlock) {
    if (loggedIn && username) {
      logoutBlock.style.display = 'flex';  // show logout block
-     alert("Hello "+username);
+    //  alert("Hello "+username);
    }
  }
 }
