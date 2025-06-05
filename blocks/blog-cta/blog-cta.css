@@ -1,0 +1,176 @@
+.blog-cta {
+
+    background: linear-gradient(to right, #f7f7f7, #ffffff);
+  
+    padding: 40px 24px;
+  
+    border-radius: 12px;
+  
+    max-width: 480px;
+  
+    margin: 80px auto;
+  
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  
+    text-align: center;
+  
+    transition: all 0.3s ease;
+  
+    font-family: 'Poppins', sans-serif;
+  
+    border: 1px solid #eaeaea;
+  
+  }
+  
+  .blog-cta:hover {
+  
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+  
+    transform: translateY(-2px);
+  
+  }
+  
+  .blogcta-heading {
+  
+    font-size: 1.5rem;
+  
+    font-weight: 700;
+  
+    color: #1a1a1a;
+  
+    margin-bottom: 12px;
+  
+    letter-spacing: -0.3px;
+  
+  }
+  
+  .blogcta-description {
+  
+    font-size: 1rem;
+  
+    color: #555;
+  
+    margin-bottom: 24px;
+  
+    line-height: 1.6;
+  
+    padding: 0 10px;
+  
+  }
+  
+  .blogcta-input-container {
+  
+    display: flex;
+  
+    justify-content: center;
+  
+    flex-wrap: wrap;
+  
+    gap: 10px;
+  
+    margin-bottom: 18px;
+  
+  }
+  
+  .custom-input {
+  
+    padding: 12px 14px;
+  
+    font-size: 0.95rem;
+  
+    border: 1px solid #ccc;
+  
+    border-radius: 6px;
+  
+    width: 100%;
+  
+    max-width: 260px;
+  
+    background-color: #fff;
+  
+    transition: all 0.3s ease;
+  
+  }
+  
+  .custom-input:focus {
+  
+    border-color: #222;
+  
+    outline: none;
+  
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  
+  }
+  
+  .blogcta-button-container {
+  
+    display: flex;
+  
+    justify-content: center;
+  
+  }
+  
+  .custom-blogcta-btnNew {
+  
+    background: orangered;
+  
+    color: #fff !important;
+  
+    padding: 12px 20px;
+  
+    font-size: 0.95rem;
+  
+    border-radius: 6px;
+  
+    cursor: pointer;
+  
+    transition: all 0.3s ease;
+  
+    white-space: nowrap;
+  
+    text-transform: uppercase;
+  
+    letter-spacing: 0.5px;
+  
+    font-weight: 600;
+  
+  }
+  
+  .custom-blogcta-btnNew:hover {
+  
+    background: #e94343;
+  
+    transform: translateY(-2px);
+  
+    box-shadow: 0 4px 12px rgba(233, 67, 67, 0.3);
+  
+  }
+  
+  @media (max-width: 600px) {
+  
+    .blog-cta {
+  
+      padding: 32px 16px;
+  
+    }
+  
+    .blogcta-heading {
+  
+      font-size: 1.3rem;
+  
+    }
+  
+    .blogcta-description {
+  
+      font-size: 0.9rem;
+  
+    }
+  
+    .custom-input {
+  
+      max-width: 100%;
+  
+    }
+  
+  }
+   
