@@ -1,6 +1,4 @@
-document.querySelectorAll(".ad-container").forEach(right=>{
-    right.classList.add("right");
-})
+
 document.querySelectorAll('.ad').forEach(ad => {
     const titleWrapper = ad.children[0];
     const titleInner = titleWrapper?.children[0];

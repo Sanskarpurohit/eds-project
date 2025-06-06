@@ -1,6 +1,4 @@
-document.querySelectorAll(".inspiration-container").forEach(right=>{
-  right.classList.add("right");
-})
+
 document.querySelectorAll('.inspiration').forEach((inspirationBlock) => {
     const allChildren = inspirationBlock.children;
     const headingWrapper = allChildren[0];

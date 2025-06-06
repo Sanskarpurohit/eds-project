@@ -1,6 +1,4 @@
-document.querySelectorAll(".tags-container").forEach(right=>{
-  right.classList.add("right");
-})
+
 document.querySelectorAll('.tags').forEach(tagsBlock => {
     const [titleWrapper, linksWrapper] = tagsBlock.children;
     titleWrapper.classList.add('tags-title-block');

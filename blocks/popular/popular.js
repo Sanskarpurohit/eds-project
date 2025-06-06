@@ -1,6 +1,4 @@
-document.querySelectorAll(".popular-container").forEach(right=>{
-  right.classList.add("right");
-})
+
 document.querySelectorAll('.popular').forEach((popularBlock) => {
 
     const allChildren = popularBlock.children;

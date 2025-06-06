@@ -2,7 +2,7 @@ const minicards = document.querySelectorAll(".minicard-v1");
 
 minicards.forEach((minicard) => {
 
-  minicard.classList.add("left");
+  // minicard.classList.add("left");
 
   const allChildren = minicard.children;
 

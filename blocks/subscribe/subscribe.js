@@ -1,6 +1,4 @@
-document.querySelectorAll(".subscribe-container").forEach(right=>{
-    right.classList.add("right");
-  });
+
 const subscribeBlock = document.querySelector('.subscribe');
 
 if (subscribeBlock) {

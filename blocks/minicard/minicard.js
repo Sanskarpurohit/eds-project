@@ -1,9 +1,5 @@
 const minicards = document.querySelectorAll('.minicard');
-const allMinicard=document.querySelectorAll(".minicard-container");
-allMinicard.forEach(left=>{
-  left.classList.add("left");
-})
-
+// const allMinicard=document.querySelectorAll(".minicard-container");
 minicards.forEach(minicard => {
 
   const allChildren = minicard.children;

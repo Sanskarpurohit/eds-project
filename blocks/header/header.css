@@ -503,4 +503,31 @@ header nav .nav-sections ul > li > ul > li {
   }
 
 }
+@media (max-width: 768px) {
+  header nav[aria-expanded='true'] .nav-tools {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 12px 0;
+  }
+ }
+ @media (max-width: 768px) {
+
+  /* Hide search bar by default on mobile */
+
+  .nav-tools .searchbar {
+
+    display: none !important;
+
+  }
+
+  /* Show search bar inside nav only when menu is expanded */
+
+  header nav[aria-expanded='true'] .nav-tools .searchbar {
+
+    display: flex !important;
+
+  }
+
+}
  
