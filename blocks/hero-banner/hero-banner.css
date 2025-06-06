@@ -333,7 +333,7 @@
   
   /* Responsive */
   
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
   
     .hero-title-block {
   
@@ -361,7 +361,7 @@
   
     }
   
-  }
+  } */
 
 
   .section-title-page {
@@ -532,7 +532,7 @@
 
   .hero-title-block {
 
-    font-size: 0.95rem;
+    font-size: 11px;
 
     bottom: 6.5rem;
 
@@ -540,7 +540,7 @@
 
   .hero-subtitle-block {
 
-    font-size: 0.8rem;
+    font-size: 11px;
 
     bottom: 4.2rem;
 
@@ -548,7 +548,7 @@
 
   .hero-btn {
 
-    font-size: 0.8rem;
+    font-size:11px;
 
     padding: 0.3rem 0.8rem;
 
