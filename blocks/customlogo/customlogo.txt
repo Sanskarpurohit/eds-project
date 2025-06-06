@@ -1,0 +1,204 @@
+(() => {
+
+  const navBrand = document.querySelector('.nav-brand');
+
+  const customLogoDivs = document.querySelectorAll('.customlogo > div');
+
+  const pageTitle = document.title.toLowerCase();
+
+  let matchedLogoImg = null;
+
+  // 1. Assign classes to each .customlogo > div based on the inner p text
+
+  customLogoDivs.forEach(div => {
+
+    const pTag = div.querySelector('p');
+
+    if (pTag) {
+
+      const brandName = pTag.textContent.trim().toLowerCase();
+
+      // Add the class to the div, e.g. 'superdry', 'default', etc.
+
+      div.classList.add(brandName);
+
+    }
+
+  });
+
+  // 2. Match the div whose class/brand name is found in page title
+
+  customLogoDivs.forEach(div => {
+
+    const brandClass = Array.from(div.classList).find(cls => cls !== 'customlogo' && cls !== 'nav-brand');
+
+    if (brandClass && pageTitle.includes(brandClass)) {
+
+      matchedLogoImg = div.querySelector('img').cloneNode(true);
+
+      // Hide all others except this one
+
+      customLogoDivs.forEach(d => d.style.display = 'none');
+
+      div.style.display = 'block';
+
+    }
+
+  });
+
+  // 3. If no match, show default
+
+  if (!matchedLogoImg) {
+
+    const defaultDiv = document.querySelector('.customlogo > div.default');
+
+    if (defaultDiv) {
+
+      matchedLogoImg = defaultDiv.querySelector('img').cloneNode(true);
+
+      customLogoDivs.forEach(d => d.style.display = 'none');
+
+      defaultDiv.style.display = 'block';
+
+    }
+
+  }
+
+  // 4. Update .nav-brand with matched logo
+
+  if (matchedLogoImg && navBrand) {
+
+    navBrand.innerHTML = '';
+
+    navBrand.appendChild(matchedLogoImg);
+
+  }
+
+})();
+ 
+(() => {
+
+  // Get brand from meta tag instead of document.title
+
+  const metaTag = document.querySelector('meta[name="tag"]');
+
+  const pageTag = metaTag ? metaTag.content.toLowerCase() : 'default';
+
+  const customLogoDivs = document.querySelectorAll('.customlogo > div');
+
+  let matchedDiv = null;
+
+  customLogoDivs.forEach(div => {
+
+    const brandNameP = div.querySelector('div > p');
+
+    if (!brandNameP) return;
+
+    const brandName = brandNameP.textContent.trim().toLowerCase();
+
+    if (brandName === pageTag) {
+
+      div.style.display = 'block';
+
+      matchedDiv = div;
+
+    } else {
+
+      div.style.display = 'none';
+
+    }
+
+  });
+
+  if (!matchedDiv) {
+
+    customLogoDivs.forEach(div => {
+
+      const brandNameP = div.querySelector('div > p');
+
+      if (!brandNameP) return;
+
+      const brandName = brandNameP.textContent.trim().toLowerCase();
+
+      if (brandName === 'default') {
+
+        div.style.display = 'block';
+
+      } else {
+
+        div.style.display = 'none';
+
+      }
+
+    });
+
+  }
+
+})();
+ 
+(() => {
+
+  // Get current page filename, e.g. "superdry.html"
+
+  const path = window.location.pathname;
+
+  const page = path.substring(path.lastIndexOf('/') + 1).toLowerCase();
+
+  // Extract page name without extension (like "superdry")
+
+  const pageName = page.split('.')[0];
+
+  const customLogoDivs = document.querySelectorAll('.customlogo > div');
+
+  let matchedDiv = null;
+
+  customLogoDivs.forEach(div => {
+
+    const brandNameP = div.querySelector('div > p');
+
+    if (!brandNameP) return;
+
+    const brandName = brandNameP.textContent.trim().toLowerCase();
+
+    if (brandName === pageName) {
+
+      div.style.display = 'block';
+
+      matchedDiv = div;
+
+    } else {
+
+      div.style.display = 'none';
+
+    }
+
+  });
+
+  if (!matchedDiv) {
+
+    // Show default if no match found
+
+    customLogoDivs.forEach(div => {
+
+      const brandNameP = div.querySelector('div > p');
+
+      if (!brandNameP) return;
+
+      const brandName = brandNameP.textContent.trim().toLowerCase();
+
+      if (brandName === 'default') {
+
+        div.style.display = 'block';
+
+      } else {
+
+        div.style.display = 'none';
+
+      }
+
+    });
+
+  }
+
+})();
+ 
