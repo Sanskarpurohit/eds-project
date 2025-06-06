@@ -1,13 +1,16 @@
-*{
+* {
+
   font-family: 'Poppins', sans-serif;
+
 }
+
 .carousel {
 
   position: relative;
 
   width: 100%;
 
-  max-width: 1200px; /* adjust as needed */
+  max-width: 1200px;
 
   margin: 0 auto;
 
@@ -17,13 +20,13 @@
 
 .slide {
 
-  display: none; /* hide all by default */
+  display: none;
 
   position: relative;
 
   width: 100%;
 
-  height: 500px; /* fixed height */
+  height: 500px;
 
   align-items: center;
 
@@ -34,6 +37,24 @@
   color: white;
 
   flex-direction: column;
+
+}
+
+/* Optional overlay for readability */
+
+.slide::before {
+
+  content: '';
+
+  position: absolute;
+
+  top: 0; left: 0;
+
+  width: 100%; height: 100%;
+
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+
+  z-index: 1;
 
 }
 
@@ -48,6 +69,8 @@
   overflow: hidden;
 
   flex-shrink: 0;
+
+  z-index: 0;
 
 }
 
@@ -83,6 +106,8 @@
 
   user-select: none;
 
+  z-index: 2;
+
 }
 
 .slide-title {
@@ -95,14 +120,9 @@
 
   text-transform: uppercase;
 
-  pointer-events: none;
   color: orangered;
 
-}
-
-.title-text {
-
-  margin: 0;
+  pointer-events: none;
 
 }
 
@@ -118,11 +138,13 @@
 
   line-height: 1.4;
 
-  pointer-events: none;
   color: tomato;
-  font-size: larger;
+
+  pointer-events: none;
 
 }
+
+.title-text,
 
 .description-text {
 
@@ -130,7 +152,7 @@
 
 }
 
-/* Show first slide initially */
+/* Show first slide by default */
 
 .slide:first-child {
 
@@ -153,21 +175,20 @@
   animation: fadeIn 0.6s ease forwards;
 
 }
-/* Tablets (portrait and smaller) */
+
+/* Tablets */
 
 @media screen and (max-width: 768px) {
 
   .carousel {
 
-    height: 60vh;
-
-    position: relative;
-
-    overflow: hidden;
+    height: auto;
 
   }
 
   .slide {
+
+    height: auto;
 
     flex-direction: column;
 
@@ -175,40 +196,31 @@
 
     align-items: flex-start;
 
-    /* padding: 1rem; */
-
-    position: relative;
-
     text-align: left;
 
   }
 
   .slide-img {
 
-    width: 97%;
-        height: 45%;
-        object-fit: contain;
-    }
+    width: 100%;
 
-  
+    height: auto;
+
+    object-fit: cover;
+
+  }
 
   .slide-title,
 
   .slide-description {
 
-    position: absolute;
-
     left: 10px;
 
     right: 10px;
 
-    z-index: 2;
-
     padding: 0.6rem 0.8rem;
 
-    background: rgba(0, 0, 0, 0.5);
-
-    color: #fff;
+    /* background: rgba(0, 0, 0, 0.5); */
 
     border-radius: 4px;
 
@@ -233,31 +245,35 @@
     line-height: 1.3;
 
   }
+
 }
 
-
-
-/* Mobile Phones (smaller screens) */
+/* Mobile Phones */
 
 @media screen and (max-width: 480px) {
 
   .carousel {
 
-    height: 50vh;
+    height: auto;
 
   }
+
   .slide-img {
 
-    width: 99%;
-    height: 28%;
-    object-fit: initial;
-    }
+    width: 100%;
+
+    height: auto;
+
+    object-fit: cover;
+
+  }
 
   .slide-title {
 
     bottom: 3.5rem;
 
     font-size: 1rem;
+    display: none;
 
   }
 
@@ -266,6 +282,7 @@
     bottom: 1.2rem;
 
     font-size: 0.8rem;
+    display: none;
 
   }
 

@@ -73,7 +73,7 @@
   
     height: 260px;
   
-    object-fit: cover;
+    object-fit: contain;
   
     transition: transform 0.4s ease;
   
@@ -256,6 +256,7 @@
     .card-image img {
   
       height: 220px;
+      object-fit: contain;
   
     }
   
@@ -293,6 +294,7 @@
     .card-image img {
   
       height: 220px;
+      object-fit: contain;
   
     }
   
@@ -313,6 +315,7 @@
     .card-image img {
   
       height: 200px;
+      object-fit: contain;
   
     }
   
@@ -343,5 +346,6 @@
     }
   
   }
+ 
    
    
