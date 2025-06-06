@@ -556,28 +556,29 @@
 
   }
 
-  .hero-title-block {
-
-    display: none;
-  }
-
   .hero-subtitle-block {
 
-    display: none;
+    font-size: 11px;
+
+    bottom: 4rem;
 
   }
 
   .hero-cta-block {
 
-    display: none;
+    bottom: 1rem;
 
   }
 
   .hero-btn {
 
-    display: none;
+    font-size: 11px;
+
+    padding: 0.3rem 0.8rem;
 
   }
+
+  
 
 }
 @media screen and (max-width: 350px) {
@@ -592,27 +593,28 @@
 
   }
 
-  .hero-title-block {
-
-    display: none;
-  }
-
   .hero-subtitle-block {
 
-    display: none;
+    font-size: 11px;
+
+    bottom: 4rem;
 
   }
 
   .hero-cta-block {
 
-    display: none;
+    bottom: 1rem;
 
   }
 
   .hero-btn {
 
-    display: none;
+    font-size: 11px;
+
+    padding: 0.3rem 0.8rem;
 
   }
+
+  
 
 }
