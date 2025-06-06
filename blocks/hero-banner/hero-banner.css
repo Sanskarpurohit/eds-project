@@ -580,3 +580,39 @@
   }
 
 }
+@media screen and (max-width: 350px) {
+
+  .hero-banner {
+
+    padding: 1rem;
+
+    height: 60vh;
+
+    align-items: flex-end;
+
+  }
+
+  .hero-title-block {
+
+    display: none;
+  }
+
+  .hero-subtitle-block {
+
+    display: none;
+
+  }
+
+  .hero-cta-block {
+
+    display: none;
+
+  }
+
+  .hero-btn {
+
+    display: none;
+
+  }
+
+}
