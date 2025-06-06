@@ -170,6 +170,76 @@ export default async function decorate(block) {
 
   
   block.append(navWrapper);
+//custom nav logo
+(() => {
+
+  // Get current page filename, e.g. "superdry.html"
+
+  const path = window.location.pathname;
+
+  const page = path.substring(path.lastIndexOf('/') + 1).toLowerCase();
+
+  // Extract page name without extension (like "superdry")
+
+  const pageName = page.split('.')[0];
+
+  const customLogoDivs = document.querySelectorAll('.customlogo > div');
+
+  let matchedDiv = null;
+
+  customLogoDivs.forEach(div => {
+
+    const brandNameP = div.querySelector('div > p');
+
+    if (!brandNameP) return;
+
+    const brandName = brandNameP.textContent.trim().toLowerCase();
+
+    if (brandName === pageName) {
+
+      div.style.display = 'block';
+
+      matchedDiv = div;
+
+    } else {
+
+      div.style.display = 'none';
+
+    }
+
+  });
+
+  if (!matchedDiv) {
+
+    // Show default if no match found
+
+    customLogoDivs.forEach(div => {
+
+      const brandNameP = div.querySelector('div > p');
+
+      if (!brandNameP) return;
+
+      const brandName = brandNameP.textContent.trim().toLowerCase();
+
+      if (brandName === 'default') {
+
+        div.style.display = 'block';
+
+      } else {
+
+        div.style.display = 'none';
+
+      }
+
+    });
+
+  }
+
+})();
+ 
+ 
+///
+
   ///search
   document.querySelectorAll('.searchbar').forEach(searchbar => {
 
